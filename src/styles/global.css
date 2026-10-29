@@ -117,3 +117,25 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -0.0
 .series-grid.n4 .series-card .series-img img { aspect-ratio: 4 / 3; }
 @media (max-width: 800px) { .series-grid.n4 .series-card { grid-column: span 1; } .series-grid.n4 .series-card .series-img img { aspect-ratio: 1 / 1; } }
 .ship-note { color: var(--muted); font-size: .9rem; border-left: 3px solid var(--flame); padding-left: .75rem; max-width: 46ch; }
+
+/* ===== Classic layer (Misha 2026-10-29: prefers the original quiet layout) ===== */
+h1, h2, h3, .site-header .brand { color: var(--fg); }
+.site-header { border-bottom: 0; }
+.site-header::after { display: none; }
+.site-footer { border-top: 1px solid var(--line); }
+.btn { background: #fff; color: var(--fg); border: 1px solid var(--fg); font-weight: 500; letter-spacing: 0; padding: .65rem 1.1rem; border-radius: 3px; }
+.btn.primary { background: var(--fg); color: #fff; }
+.btn:hover { background: var(--flame); border-color: var(--flame); color: #fff; }
+.site-header .brand { font-size: clamp(1.4rem, 2.2vw, 1.75rem); }
+.hero h1 { font-size: clamp(2.4rem, 4.6vw, 3.6rem); }
+.potm { color: var(--muted); font-size: .9rem; margin-top: 2rem; }
+.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; }
+.card h3 { color: var(--fg); }
+/* font options for preview */
+html.f1 { --display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; }
+html.f2 { --display: 'Instrument Serif', Georgia, serif; }
+html.f3 { --display: 'Cormorant Garamond', Georgia, serif; }
+html.f3 h1, html.f3 h2, html.f3 h3, html.f3 .site-header .brand { font-weight: 500; }
+html.f4 { --display: 'EB Garamond', Georgia, serif; }
+html.f5 { --display: 'Fraunces Variable', Georgia, serif; }
+html.f5 h1, html.f5 h2, html.f5 h3, html.f5 .site-header .brand { font-weight: 300; font-variation-settings: 'SOFT' 100, 'opsz' 144; }
