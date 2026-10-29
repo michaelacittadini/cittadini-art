@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+## v0.2.6 — 2026-10-29
 - Exhibitions: AAU Spring Show 2026 now names the three works still on view at 601 Brannan St.
 
 ## v0.2.5 — 2026-10-29
