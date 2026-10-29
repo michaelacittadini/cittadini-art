@@ -1,0 +1,5 @@
+{
+  "_howto": "Painting of the month on the home page. Change 'slug' to an artwork folder name in src/content/artworks/ and 'month' to the month label.",
+  "slug": "tidal-bloom",
+  "month": "November 2026"
+}

@@ -37,6 +37,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'VisualArtwork', name: d
       <p>
         {d.status === 'available' && buy ? <a class="btn primary" href={buy}>Buy original</a> : <a class="btn primary" href={`mailto:${site.email}?subject=${subject}`}>Enquire about this work</a>}
       </p>
+      {d.status === 'available' && <p class="ship-note">Free pickup at the studio in Sausalito. Shipping is quoted individually when you enquire: insured, professionally packed, worldwide.</p>}
       {d.instagram && <p><a href={d.instagram} rel="noopener">See on Instagram</a></p>}
       <nav aria-label="More works" class="meta">
         {prev && <a href={`/works/${prev.id}/`}>&larr; {prev.data.title}</a>} {prev && next && ' · '} {next && <a href={`/works/${next.id}/`}>{next.data.title} &rarr;</a>}

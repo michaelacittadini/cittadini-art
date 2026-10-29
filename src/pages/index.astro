@@ -4,11 +4,14 @@ import Base from '../layouts/Base.astro';
 import ArtCard from '../components/ArtCard.astro';
 import { allWorks, seriesList } from '../lib/works';
 import { site } from '../site.config';
+import heroConf from '../data/hero.json';
+import seriesOrder from '../data/series-order.json';
 const works = await allWorks();
 const featured = works.filter((w) => w.data.featured);
-const hero = featured[0] ?? works[0];
-const highlights = (featured.length > 1 ? featured.slice(1) : works.slice(1)).slice(0, 9);
-const series = await seriesList();
+const hero = works.find((w) => w.id === heroConf.slug) ?? featured[0] ?? works[0];
+const highlights = featured.filter((w) => w.id !== hero?.id).slice(0, 8);
+const rank = (n) => { const i = seriesOrder.order.indexOf(n); return i < 0 ? 999 : i; };
+const series = (await seriesList()).filter((s) => !(seriesOrder.hidden ?? []).includes(s.name)).sort((a, b) => rank(a.name) - rank(b.name));
 ---
 <Base image={hero?.data.images[0]} jsonLd={{ '@context': 'https://schema.org', '@type': 'Person', name: site.name, alternateName: site.legalName, jobTitle: 'Artist', url: Astro.site?.href, sameAs: [site.instagram] }}>
   {hero && (
@@ -18,6 +21,7 @@ const series = await seriesList();
         <h1>{site.name}</h1>
         <p class="lede">{site.tagline}{site.location ? `, ${site.location}` : ''}.</p>
         <p><a class="btn primary" href="/works/">View works</a> <a class="btn" href="/commissions/">Commissions</a></p>
+        <p class="potm">Painting of the month: <a href={`/works/${hero.id}/`}><em>{hero.data.title}</em></a></p>
       </div>
     </section>
   )}
