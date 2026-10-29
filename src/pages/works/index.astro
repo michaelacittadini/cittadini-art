@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArtCard from '../../components/ArtCard.astro';
+import { allWorks, seriesList } from '../../lib/works';
+const works = await allWorks();
+const series = await seriesList();
+---
+<Base title="Works" description="Original paintings by Misha Cittadini: all works, by series, with availability.">
+  <h1>Works</h1>
+  {series.length > 0 && <nav aria-label="Series"><ul class="chips"><li><a href="/works/" aria-current="page">All</a></li>{series.map((s) => <li><a href={`/works/series/${s.slug}/`}>{s.name}</a></li>)}</ul></nav>}
+  <div class="grid">{works.map((w, i) => <ArtCard work={w} eager={i < 3} />)}</div>
+</Base>

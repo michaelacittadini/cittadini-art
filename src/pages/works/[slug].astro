@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { allWorks, formatPrice, slugify, statusLabel } from '../../lib/works';
+import { site } from '../../site.config';
+export async function getStaticPaths() {
+  const works = await allWorks();
+  return works.map((w, i) => ({ params: { slug: w.id }, props: { work: w, prev: works[i - 1], next: works[i + 1] } }));
+}
+const { work, prev, next } = Astro.props;
+const d = work.data;
+const { Content } = await render(work);
+const buy = site.commerce.stripePaymentLinks[work.id];
+const subject = encodeURIComponent(`Enquiry: ${d.title}`);
+const alt = d.alt ?? `${d.title}${d.medium ? ', ' + d.medium : ''} by Misha Cittadini`;
+const desc = [d.title, d.year, d.medium, d.dimensions].filter(Boolean).join(', ') + ' — original artwork by Misha Cittadini.';
+const ld = { '@context': 'https://schema.org', '@type': 'VisualArtwork', name: d.title, creator: { '@type': 'Person', name: site.name }, dateCreated: d.year ? String(d.year) : undefined, artMedium: d.medium, width: d.widthIn ? { '@type': 'Distance', name: `${d.widthIn} in` } : undefined, height: d.heightIn ? { '@type': 'Distance', name: `${d.heightIn} in` } : undefined, url: new URL(Astro.url.pathname, Astro.site).href };
+---
+<Base title={d.title} description={desc} image={d.images[0]} jsonLd={ld}>
+  <div class="artwork">
+    <div>
+      {d.images.map((img, i) => (
+        <figure><Image src={img} alt={i === 0 ? alt : `${d.title}, view ${i + 1}`} widths={[640, 960, 1400, 2000]} sizes="(max-width: 860px) 100vw, 62vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} /></figure>
+      ))}
+    </div>
+    <div>
+      <h1>{d.title}</h1>
+      <dl class="details">
+        {d.year && <><dt>Year</dt><dd>{d.year}</dd></>}
+        {d.medium && <><dt>Medium</dt><dd>{d.medium}</dd></>}
+        {d.dimensions && <><dt>Dimensions</dt><dd>{d.dimensions}</dd></>}
+        {d.series && <><dt>Series</dt><dd><a href={`/works/series/${slugify(d.series)}/`}>{d.series}</a></dd></>}
+        {statusLabel[d.status] && <><dt>Availability</dt><dd>{statusLabel[d.status]}{d.status === 'available' && d.price ? ` — ${formatPrice(d.price)}` : ''}</dd></>}
+      </dl>
+      <div class="prose"><Content /></div>
+      <p>
+        {d.status === 'available' && buy ? <a class="btn primary" href={buy}>Buy original</a> : <a class="btn primary" href={`mailto:${site.email}?subject=${subject}`}>Enquire about this work</a>}
+      </p>
+      {d.instagram && <p><a href={d.instagram} rel="noopener">See on Instagram</a></p>}
+      <nav aria-label="More works" class="meta">
+        {prev && <a href={`/works/${prev.id}/`}>&larr; {prev.data.title}</a>} {prev && next && ' · '} {next && <a href={`/works/${next.id}/`}>{next.data.title} &rarr;</a>}
+      </nav>
+    </div>
+  </div>
+</Base>

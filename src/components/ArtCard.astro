@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+import type { Artwork } from '../lib/works';
+import { statusLabel } from '../lib/works';
+interface Props { work: Artwork; eager?: boolean }
+const { work, eager = false } = Astro.props;
+const d = work.data;
+---
+<article class="card">
+  <a href={`/works/${work.id}/`}>
+    <Image src={d.images[0]} alt={d.alt ?? `${d.title}${d.medium ? ', ' + d.medium : ''} by Misha Cittadini`} widths={[360, 540, 720]} sizes="(max-width: 600px) 100vw, 360px" loading={eager ? 'eager' : 'lazy'} />
+    <h3>{d.title}</h3>
+    <p class="meta">{[d.year, d.medium].filter(Boolean).join(' · ')}{statusLabel[d.status] && <> · {statusLabel[d.status]}</>}</p>
+  </a>
+</article>

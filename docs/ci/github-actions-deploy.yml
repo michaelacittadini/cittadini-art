@@ -1,0 +1,78 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      # Production URL once cittadini.art is cut over; preview URL before that (repo variables).
+      SITE_URL: ${{ vars.SITE_URL || 'https://cittadini.art' }}
+      PUBLIC_PREVIEW: ${{ (github.event_name == 'pull_request' || vars.PUBLIC_PREVIEW == '1') && '1' || '0' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check:content
+      - run: npm run build
+
+      # Preferred host: Cloudflare Pages in Misha's Cloudflare account (every branch/PR gets a preview URL).
+      - name: Deploy to Cloudflare Pages
+        if: env.CF_TOKEN != ''
+        id: cf
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=cittadini-art --branch=${{ github.head_ref || github.ref_name }}
+      - name: Comment preview URL on PR
+        if: env.CF_TOKEN != '' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              body: 'Preview: ${{ steps.cf.outputs.deployment-url }}' });
+
+      # Fallback host until the Cloudflare token exists: GitHub Pages (main branch only).
+      - name: Upload GitHub Pages artifact
+        if: env.CF_TOKEN == '' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Upload PR build for review
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: dist
+          retention-days: 7
+
+  pages:
+    needs: build
+    if: github.event_name != 'pull_request' && vars.HOST != 'cloudflare'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

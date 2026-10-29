@@ -1,0 +1,15 @@
+---
+import Base from '../../../layouts/Base.astro';
+import ArtCard from '../../../components/ArtCard.astro';
+import { seriesList } from '../../../lib/works';
+export async function getStaticPaths() {
+  const list = await seriesList();
+  return list.map((s) => ({ params: { series: s.slug }, props: { s, list } }));
+}
+const { s, list } = Astro.props;
+---
+<Base title={s.name} description={`${s.name}: a series of paintings by Misha Cittadini.`} image={s.items[0]?.data.images[0]}>
+  <h1>{s.name}</h1>
+  <nav aria-label="Series"><ul class="chips"><li><a href="/works/">All</a></li>{list.map((x) => <li><a href={`/works/series/${x.slug}/`} aria-current={x.slug === s.slug ? 'page' : undefined}>{x.name}</a></li>)}</ul></nav>
+  <div class="grid">{s.items.map((w, i) => <ArtCard work={w} eager={i < 3} />)}</div>
+</Base>

@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ArtCard from '../components/ArtCard.astro';
+import { allWorks, seriesList } from '../lib/works';
+import { site } from '../site.config';
+const works = await allWorks();
+const featured = works.filter((w) => w.data.featured);
+const hero = featured[0] ?? works[0];
+const highlights = (featured.length > 1 ? featured.slice(1) : works.slice(1)).slice(0, 9);
+const series = await seriesList();
+---
+<Base image={hero?.data.images[0]} jsonLd={{ '@context': 'https://schema.org', '@type': 'Person', name: site.name, alternateName: site.legalName, jobTitle: 'Artist', url: Astro.site?.href, sameAs: [site.instagram] }}>
+  {hero && (
+    <section class="hero">
+      <a href={`/works/${hero.id}/`}><Image src={hero.data.images[0]} alt={hero.data.alt ?? hero.data.title} widths={[640, 960, 1400]} sizes="(max-width: 800px) 100vw, 60vw" loading="eager" fetchpriority="high" /></a>
+      <div>
+        <h1>{site.name}</h1>
+        <p class="lede">{site.tagline}{site.location ? `, ${site.location}` : ''}.</p>
+        <p><a class="btn primary" href="/works/">View works</a> <a class="btn" href="/commissions/">Commissions</a></p>
+      </div>
+    </section>
+  )}
+  {series.length > 0 && (
+    <section aria-labelledby="series-h">
+      <h2 id="series-h">Series</h2>
+      <ul class="chips">{series.map((s) => <li><a href={`/works/series/${s.slug}/`}>{s.name}</a></li>)}</ul>
+    </section>
+  )}
+  <section aria-labelledby="sel-h">
+    <h2 id="sel-h">Selected works</h2>
+    <div class="grid">{highlights.map((w) => <ArtCard work={w} />)}</div>
+    <p><a href="/works/">All works &rarr;</a></p>
+  </section>
+</Base>

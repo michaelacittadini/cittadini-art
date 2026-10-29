@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+---
+<Base title="Contact" description="Contact Misha Cittadini about originals, commissions and exhibitions.">
+  <h1>Contact</h1>
+  <div class="prose">
+    <p>For originals, commissions, exhibitions or press, email <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    <p>Follow new work on <a href={site.instagram} rel="me noopener">Instagram</a>.</p>
+    {site.location && <p>Studio: {site.location}.</p>}
+  </div>
+</Base>

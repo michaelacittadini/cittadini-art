@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import { Content } from '../content/pages/commissions.md';
+import { site } from '../site.config';
+---
+<Base title="Commissions" description="Commission an original painting from Misha Cittadini.">
+  <div class="prose"><Content /></div>
+  <p><a class="btn primary" href={`mailto:${site.email}?subject=${encodeURIComponent('Commission enquiry')}`}>Start a commission enquiry</a></p>
+</Base>

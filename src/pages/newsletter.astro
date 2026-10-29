@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+const n = site.newsletter;
+---
+<Base title="Newsletter" description="Hear first about new paintings, exhibitions and open studios.">
+  <h1>Newsletter</h1>
+  <p class="lede">Hear first about new paintings, exhibitions and open studios.</p>
+  {n.formAction ? (
+    <form class="stack" method="post" action={n.formAction}>
+      <label for="nl-email">Email address</label>
+      <input id="nl-email" type="email" name={n.emailFieldName} required autocomplete="email" />
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+  ) : (
+    <p><a class="btn primary" href={`mailto:${site.email}?subject=${encodeURIComponent('Please add me to your newsletter')}`}>Join by email</a></p>
+  )}
+</Base>
