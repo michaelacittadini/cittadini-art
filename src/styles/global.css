@@ -131,11 +131,7 @@ h1, h2, h3, .site-header .brand { color: var(--fg); }
 .potm { color: var(--muted); font-size: .9rem; margin-top: 2rem; }
 .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; }
 .card h3 { color: var(--fg); }
-/* font options for preview */
-html.f1 { --display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; }
-html.f2 { --display: 'Instrument Serif', Georgia, serif; }
-html.f3 { --display: 'Cormorant Garamond', Georgia, serif; }
-html.f3 h1, html.f3 h2, html.f3 h3, html.f3 .site-header .brand { font-weight: 500; }
-html.f4 { --display: 'EB Garamond', Georgia, serif; }
-html.f5 { --display: 'Fraunces Variable', Georgia, serif; }
-html.f5 h1, html.f5 h2, html.f5 h3, html.f5 .site-header .brand { font-weight: 300; font-variation-settings: 'SOFT' 100, 'opsz' 144; }
+
+/* Display font: Cormorant Garamond (Misha's choice 2026-10-29) */
+:root { --display: 'Cormorant Garamond', Georgia, serif; }
+h1, h2, h3, .site-header .brand { font-weight: 500; }
