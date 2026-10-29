@@ -13,7 +13,9 @@
     "check:content": "node scripts/check-content.mjs",
     "add-artwork": "node scripts/add-artwork.mjs",
     "deploy:preview": "bash scripts/deploy-preview.sh",
-    "publish": "bash scripts/deploy-preview.sh"
+    "publish": "bash scripts/deploy-preview.sh",
+    "stripe:sync": "node scripts/stripe/sync-artworks.mjs",
+    "stripe:invoice": "node scripts/stripe/commission-invoice.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
