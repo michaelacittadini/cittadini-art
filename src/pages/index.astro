@@ -20,7 +20,7 @@ const series = (await seriesList()).filter((s) => !(seriesOrder.hidden ?? []).in
       <div>
         <h1>{site.name}</h1>
         <p class="lede">{site.tagline}{site.location ? `, ${site.location}` : ''}.</p>
-        <p><a class="btn primary" href="/works/">View works</a> <a class="btn" href="/commissions/">Commissions</a></p>
+        <p><a class="btn primary" href="/works/">View works</a></p>
         <p class="potm">Painting of the month: <a href={`/works/${hero.id}/`}><em>{hero.data.title}</em></a></p>
       </div>
     </section>
