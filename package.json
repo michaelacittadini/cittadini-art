@@ -12,7 +12,8 @@
     "astro": "astro",
     "check:content": "node scripts/check-content.mjs",
     "add-artwork": "node scripts/add-artwork.mjs",
-    "deploy:preview": "bash scripts/deploy-preview.sh"
+    "deploy:preview": "bash scripts/deploy-preview.sh",
+    "publish": "bash scripts/deploy-preview.sh"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
