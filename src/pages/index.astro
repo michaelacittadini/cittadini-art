@@ -12,7 +12,7 @@ const works = await allWorks();
 const featured = works.filter((w) => w.data.featured);
 const hero = works.find((w) => w.id === heroConf.slug) ?? featured[0] ?? works[0];
 const rank = (n) => { const i = seriesOrder.order.indexOf(n); return i < 0 ? 999 : i; };
-const series = (await seriesList()).sort((a, b) => rank(a.name) - rank(b.name) || b.items.length - a.items.length);
+const series = (await seriesList()).filter((s) => !(seriesOrder.hidden ?? []).includes(s.name)).sort((a, b) => rank(a.name) - rank(b.name) || b.items.length - a.items.length);
 const cover = (items) => items.find((w) => w.data.featured && w.id !== hero?.id) ?? items.find((w) => w.id !== hero?.id) ?? items[0];
 ---
 <Base image={hero?.data.images[0]} jsonLd={{ '@context': 'https://schema.org', '@type': 'Person', name: site.name, alternateName: site.legalName, jobTitle: 'Artist', url: Astro.site?.href, sameAs: [site.instagram] }}>
@@ -34,7 +34,7 @@ const cover = (items) => items.find((w) => w.data.featured && w.id !== hero?.id)
       <h2 id="series-h">Series</h2>
       <a class="more" href="/works/">All works &rarr;</a>
     </div>
-    <ul class="series-grid">
+    <ul class={`series-grid n${series.length}`}>
       {series.map((s) => {
         const c = cover(s.items);
         const img = coverFor(s.slug) ?? c.data.images[0];
