@@ -21,7 +21,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const og = image ? new URL((await getImage({ src: image, width: 1200, format: 'jpeg' })).src, Astro.site).href : undefined;
 const isPreview = import.meta.env.PUBLIC_PREVIEW === '1';
 const nav = [
-  ['/works/', 'Works'], ['/about/', 'About'], ['/exhibitions/', 'Exhibitions'], ['/commissions/', 'Commissions'], ['/contact/', 'Contact'],
+  ['/works/', 'Works'], ['/about/', 'About'], ['/exhibitions/', 'Exhibitions'], ['/contact/', 'Contact'],
 ];
 const here = Astro.url.pathname;
 ---
