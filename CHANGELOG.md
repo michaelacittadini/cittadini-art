@@ -10,6 +10,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+- Exhibitions: added The Big Open (Nov 2026) and NOSTALGIA at Mirus Gallery; Stockton (Haggin Museum) and David Sutherland Showroom now dated 2026 and listed at the top.
+
 ## v0.2.4 — 2026-10-29
 - Series in Misha's order everywhere: Resonance, Interference, Second Light, Trade Winds, Palm Trees, The Hours (Palm Trees back on the home page).
 
