@@ -4,10 +4,15 @@ import Base from '../layouts/Base.astro';
 import { allWorks, seriesList } from '../lib/works';
 import { site } from '../site.config';
 import heroConf from '../data/hero.json';
+import seriesCovers from '../data/series-covers.json';
+import seriesOrder from '../data/series-order.json';
+const coverFiles = import.meta.glob('../assets/series/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' });
+const coverFor = (slug) => { const f = seriesCovers[slug]; return f ? coverFiles[`../assets/series/${f}`] : undefined; };
 const works = await allWorks();
 const featured = works.filter((w) => w.data.featured);
 const hero = works.find((w) => w.id === heroConf.slug) ?? featured[0] ?? works[0];
-const series = (await seriesList()).sort((a, b) => b.items.length - a.items.length);
+const rank = (n) => { const i = seriesOrder.order.indexOf(n); return i < 0 ? 999 : i; };
+const series = (await seriesList()).sort((a, b) => rank(a.name) - rank(b.name) || b.items.length - a.items.length);
 const cover = (items) => items.find((w) => w.data.featured && w.id !== hero?.id) ?? items.find((w) => w.id !== hero?.id) ?? items[0];
 ---
 <Base image={hero?.data.images[0]} jsonLd={{ '@context': 'https://schema.org', '@type': 'Person', name: site.name, alternateName: site.legalName, jobTitle: 'Artist', url: Astro.site?.href, sameAs: [site.instagram] }}>
@@ -32,10 +37,11 @@ const cover = (items) => items.find((w) => w.data.featured && w.id !== hero?.id)
     <ul class="series-grid">
       {series.map((s) => {
         const c = cover(s.items);
+        const img = coverFor(s.slug) ?? c.data.images[0];
         return (
           <li class="series-card">
             <a href={`/works/series/${s.slug}/`}>
-              <span class="series-img"><Image src={c.data.images[0]} alt="" widths={[480, 800]} sizes="(max-width: 700px) 100vw, 33vw" /></span>
+              <span class="series-img"><Image src={img} alt="" widths={[480, 800]} sizes="(max-width: 700px) 100vw, 33vw" /></span>
               <span class="series-name">{s.name}</span>
               <span class="series-count">{s.items.length} {s.items.length === 1 ? 'work' : 'works'}</span>
             </a>

@@ -1,0 +1,4 @@
+{
+  "_howto": "Optional cover image per series on the home page. Key = series slug, value = file in src/assets/series/. Series without an entry use one of their artworks.",
+  "trade-winds": "trade-winds.jpg"
+}
