@@ -10,6 +10,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+- New look: Fraunces + Instrument Sans fonts, indigo and flame-orange colours. Home page now shows a "Painting of the month" (set in src/data/hero.json) followed by a grid of the five series.
+
 ## v0.1.0 — 2026-10-29
 - First versioned release of the site live at https://cittadini.art: 53 artworks, bio and statement, 22 exhibitions, CV, commissions.
 - Stripe Payment Link sync, commission deposit/balance invoices and /thanks page (works show "Enquire" until Stripe keys exist).

@@ -1,35 +1,51 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import ArtCard from '../components/ArtCard.astro';
 import { allWorks, seriesList } from '../lib/works';
 import { site } from '../site.config';
+import heroConf from '../data/hero.json';
 const works = await allWorks();
 const featured = works.filter((w) => w.data.featured);
-const hero = featured[0] ?? works[0];
-const highlights = (featured.length > 1 ? featured.slice(1) : works.slice(1)).slice(0, 9);
-const series = await seriesList();
+const hero = works.find((w) => w.id === heroConf.slug) ?? featured[0] ?? works[0];
+const series = (await seriesList()).sort((a, b) => b.items.length - a.items.length);
+const cover = (items) => items.find((w) => w.data.featured && w.id !== hero?.id) ?? items.find((w) => w.id !== hero?.id) ?? items[0];
 ---
 <Base image={hero?.data.images[0]} jsonLd={{ '@context': 'https://schema.org', '@type': 'Person', name: site.name, alternateName: site.legalName, jobTitle: 'Artist', url: Astro.site?.href, sameAs: [site.instagram] }}>
+  <h1 class="sr-only">{site.name}, abstract painter</h1>
   {hero && (
-    <section class="hero">
-      <a href={`/works/${hero.id}/`}><Image src={hero.data.images[0]} alt={hero.data.alt ?? hero.data.title} widths={[640, 960, 1400]} sizes="(max-width: 800px) 100vw, 60vw" loading="eager" fetchpriority="high" /></a>
-      <div>
-        <h1>{site.name}</h1>
-        <p class="lede">{site.tagline}{site.location ? `, ${site.location}` : ''}.</p>
-        <p><a class="btn primary" href="/works/">View works</a> <a class="btn" href="/commissions/">Commissions</a></p>
+    <section class="feature" aria-labelledby="feature-h">
+      <a class="feature-img" href={`/works/${hero.id}/`}>
+        <Image src={hero.data.images[0]} alt={hero.data.alt ?? hero.data.title} widths={[800, 1400, 2000]} sizes="(max-width: 900px) 100vw, 1200px" loading="eager" fetchpriority="high" />
+      </a>
+      <div class="feature-cap">
+        <p class="kicker">Painting of the month &middot; {heroConf.month}</p>
+        <h2 id="feature-h"><a href={`/works/${hero.id}/`}>{hero.data.title}</a></h2>
+        <p class="meta">{[hero.data.year, hero.data.medium, hero.data.dimensions].filter(Boolean).join(' · ')}</p>
       </div>
     </section>
   )}
-  {series.length > 0 && (
-    <section aria-labelledby="series-h">
+  <section class="series" aria-labelledby="series-h">
+    <div class="section-head">
       <h2 id="series-h">Series</h2>
-      <ul class="chips">{series.map((s) => <li><a href={`/works/series/${s.slug}/`}>{s.name}</a></li>)}</ul>
-    </section>
-  )}
-  <section aria-labelledby="sel-h">
-    <h2 id="sel-h">Selected works</h2>
-    <div class="grid">{highlights.map((w) => <ArtCard work={w} />)}</div>
-    <p><a href="/works/">All works &rarr;</a></p>
+      <a class="more" href="/works/">All works &rarr;</a>
+    </div>
+    <ul class="series-grid">
+      {series.map((s) => {
+        const c = cover(s.items);
+        return (
+          <li class="series-card">
+            <a href={`/works/series/${s.slug}/`}>
+              <span class="series-img"><Image src={c.data.images[0]} alt="" widths={[480, 800]} sizes="(max-width: 700px) 100vw, 33vw" /></span>
+              <span class="series-name">{s.name}</span>
+              <span class="series-count">{s.items.length} {s.items.length === 1 ? 'work' : 'works'}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+  <section class="intro">
+    <p>{site.description}</p>
+    <p><a class="btn" href="/works/">View all works</a> <a class="btn btn-ghost" href="/commissions/">Commissions</a></p>
   </section>
 </Base>
