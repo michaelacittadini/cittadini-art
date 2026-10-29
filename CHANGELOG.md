@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+## v0.2.0 — 2026-10-29
 - New look: Fraunces + Instrument Sans fonts, indigo and flame-orange colours. Home page now shows a "Painting of the month" (set in src/data/hero.json) followed by a grid of five series (Resonance, Interference, Second Light, Trade Winds, The Hours; Palm Trees stays under All works). Added The Hours: ten 12 × 12 in works, $495 each, in hanging order. Artwork pages note free studio pickup; shipping quoted on enquiry. Cormorant Garamond for the name and headings; home page keeps the quiet layout (hero with name, series as text links, selected works).
 
 ## v0.1.0 — 2026-10-29
