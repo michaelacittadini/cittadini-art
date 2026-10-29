@@ -10,7 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
-- New look: Fraunces + Instrument Sans fonts, indigo and flame-orange colours. Home page now shows a "Painting of the month" (set in src/data/hero.json) followed by a grid of five series (Resonance, Interference, Second Light, Trade Winds, The Hours; Palm Trees stays under All works). Added The Hours: ten 12 × 12 in works, $495 each, in hanging order. Tall Instrument Serif for the name and headings.
+- New look: Fraunces + Instrument Sans fonts, indigo and flame-orange colours. Home page now shows a "Painting of the month" (set in src/data/hero.json) followed by a grid of five series (Resonance, Interference, Second Light, Trade Winds, The Hours; Palm Trees stays under All works). Added The Hours: ten 12 × 12 in works, $495 each, in hanging order. Artwork pages note free studio pickup; shipping quoted on enquiry. Tall Instrument Serif for the name and headings.
 
 ## v0.1.0 — 2026-10-29
 - First versioned release of the site live at https://cittadini.art: 53 artworks, bio and statement, 22 exhibitions, CV, commissions.
