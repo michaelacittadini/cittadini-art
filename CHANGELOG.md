@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+## v0.2.3 — 2026-10-29
 - Removed Commissions from the main menu (Misha).
 
 ## v0.2.2 — 2026-10-29
