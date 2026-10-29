@@ -10,6 +10,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+- Neutral black and grey palette (no blue or orange accents).
+
 ## v0.2.1 — 2026-10-29
 - Home page: removed the Commissions button (Misha).
 

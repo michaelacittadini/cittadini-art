@@ -135,3 +135,10 @@ h1, h2, h3, .site-header .brand { color: var(--fg); }
 /* Display font: Cormorant Garamond (Misha's choice 2026-10-29) */
 :root { --display: 'Cormorant Garamond', Georgia, serif; }
 h1, h2, h3, .site-header .brand { font-weight: 500; }
+
+/* Neutral palette: no blue/orange (Misha 2026-10-29) */
+:root { --indigo: #141414; --indigo-deep: #141414; --flame: #8a8a8a; --flame-text: #5c5c5c; --accent: #141414; --fg: #141414; --muted: #5c5c5c; --line: #e4e4e4; }
+a { color: var(--fg); text-decoration-color: #b5b5b5; text-decoration-thickness: 1px; }
+a:hover { color: var(--muted); text-decoration-color: var(--fg); }
+.btn:hover { background: #3a3a3a; border-color: #3a3a3a; color: #fff; }
+.ship-note { border-left-color: var(--line); }
