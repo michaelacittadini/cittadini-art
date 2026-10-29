@@ -113,8 +113,6 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -0.0
 .feature-cap h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
 .section-head h2 { font-size: clamp(2.2rem, 4.2vw, 3.2rem); }
 @media (max-width: 800px) { .series-name { font-size: 1.55rem; } }
-html.opt-b .site-header .brand { font-family: 'Big Shoulders Display Variable', sans-serif; font-weight: 200; text-transform: uppercase; letter-spacing: .14em; font-size: clamp(2rem, 3.6vw, 2.8rem); }
-html.opt-b h1, html.opt-b h2, html.opt-b h3, html.opt-b .series-name { font-family: 'Big Shoulders Display Variable', sans-serif; font-weight: 250; letter-spacing: .04em; font-style: normal; }
 .series-grid.n4 .series-card { grid-column: span 3; }
 .series-grid.n4 .series-card .series-img img { aspect-ratio: 4 / 3; }
 @media (max-width: 800px) { .series-grid.n4 .series-card { grid-column: span 1; } .series-grid.n4 .series-card .series-img img { aspect-ratio: 1 / 1; } }

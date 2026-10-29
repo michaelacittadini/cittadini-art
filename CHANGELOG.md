@@ -10,7 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
-- New look: Fraunces + Instrument Sans fonts, indigo and flame-orange colours. Home page now shows a "Painting of the month" (set in src/data/hero.json) followed by a grid of the five series.
+- New look: Fraunces + Instrument Sans fonts, indigo and flame-orange colours. Home page now shows a "Painting of the month" (set in src/data/hero.json) followed by a 2×2 grid of four series (Resonance, Interference, Second Light, Trade Winds; Palm Trees stays under All works). Tall Instrument Serif for the name and headings.
 
 ## v0.1.0 — 2026-10-29
 - First versioned release of the site live at https://cittadini.art: 53 artworks, bio and statement, 22 exhibitions, CV, commissions.
