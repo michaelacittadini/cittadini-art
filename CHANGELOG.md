@@ -10,6 +10,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+- Series in Misha's order everywhere: Resonance, Interference, Second Light, Trade Winds, Palm Trees, The Hours (Palm Trees back on the home page).
+
 ## v0.2.3 — 2026-10-29
 - Removed Commissions from the main menu (Misha).
 

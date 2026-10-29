@@ -1,13 +1,12 @@
 {
-  "_howto": "Order of series on the home page (exact series names). 'hidden' series stay on the site (All works, their own page) but are not shown on the home page.",
+  "_howto": "Order of series everywhere on the site (exact series names). Series not listed go last. 'hidden' = not shown on the home page.",
   "order": [
     "Resonance",
     "Interference",
     "Second Light",
     "Trade Winds",
+    "Palm Trees",
     "The Hours"
   ],
-  "hidden": [
-    "Palm Trees"
-  ]
+  "hidden": []
 }

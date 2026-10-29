@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import seriesOrder from '../data/series-order.json';
 
 export type Artwork = CollectionEntry<'artworks'>;
 
@@ -15,7 +16,8 @@ export async function seriesList() {
   const works = await allWorks();
   const map = new Map<string, Artwork[]>();
   for (const w of works) if (w.data.series) map.set(w.data.series, [...(map.get(w.data.series) ?? []), w]);
-  return [...map.entries()].map(([name, items]) => ({ name, slug: slugify(name), items }));
+  const rank = (n: string) => { const i = seriesOrder.order.indexOf(n); return i < 0 ? 999 : i; };
+  return [...map.entries()].map(([name, items]) => ({ name, slug: slugify(name), items })).sort((a, b) => rank(a.name) - rank(b.name));
 }
 
 export const statusLabel: Record<string, string> = { available: 'Available', sold: 'Sold', nfs: 'Not for sale', commission: 'Commission', unknown: '' };
