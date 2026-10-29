@@ -43,3 +43,5 @@ form.stack { display: grid; gap: .75rem; max-width: 420px; }
 input[type=email], input[type=text], textarea { font: inherit; padding: .6rem .7rem; border: 1px solid #9a9a9a; border-radius: 3px; }
 .site-footer { border-top: 1px solid var(--line); max-width: var(--max); margin: 0 auto; padding: 2rem 1.25rem; color: var(--muted); font-size: .9rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.site-version { font-size: 0.8em; opacity: 0.6; }

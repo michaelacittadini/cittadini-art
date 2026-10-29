@@ -1,0 +1,16 @@
+# Changelog
+
+Every change to cittadini.art gets a version number **vMAJOR.MINOR.PATCH** (for example v0.1.0).
+The site footer shows the live version, every version is a git tag in this repo, and the publish
+script refuses to put anything live unless it is a tagged, pushed version. See docs/VERSIONING.md.
+
+- **PATCH** (v0.1.0 → v0.1.1): fixes, wording, prices, photos, adding or removing an artwork.
+- **MINOR** (v0.1.1 → v0.2.0): a new page or feature (e.g. Buy buttons go live, newsletter sign-up).
+- **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
+
+## Unreleased
+
+## v0.1.0 — 2026-10-29
+- First versioned release of the site live at https://cittadini.art: 53 artworks, bio and statement, 22 exhibitions, CV, commissions.
+- Stripe Payment Link sync, commission deposit/balance invoices and /thanks page (works show "Enquire" until Stripe keys exist).
+- Version numbering: version shown in the footer, `npm run release`, and publish refuses untagged builds.

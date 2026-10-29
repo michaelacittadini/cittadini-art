@@ -1,7 +1,7 @@
 {
   "name": "cittadini-art",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "node": ">=22.23.4"
   },
@@ -15,7 +15,9 @@
     "deploy:preview": "bash scripts/deploy-preview.sh",
     "publish": "bash scripts/deploy-preview.sh",
     "stripe:sync": "node scripts/stripe/sync-artworks.mjs",
-    "stripe:invoice": "node scripts/stripe/commission-invoice.mjs"
+    "stripe:invoice": "node scripts/stripe/commission-invoice.mjs",
+    "check:version": "node scripts/check-version.mjs",
+    "release": "bash scripts/release.sh"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
