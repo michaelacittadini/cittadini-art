@@ -10,6 +10,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+- Exhibitions: AAU Spring Show 2026 now names the three works still on view at 601 Brannan St.
+
 ## v0.2.5 — 2026-10-29
 - Exhibitions: added The Big Open (Nov 2026) and NOSTALGIA at Mirus Gallery; Stockton (Haggin Museum) and David Sutherland Showroom now dated 2026 and listed at the top.
 
