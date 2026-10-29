@@ -2,11 +2,12 @@
 export const site = {
   name: 'Misha Cittadini',
   legalName: 'Michaela Cittadini',
-  tagline: 'Contemporary painter',
-  description: 'Original paintings by Misha (Michaela) Cittadini. Browse works, series and exhibitions, and enquire about originals and commissions.',
+  tagline: 'Abstract painter',
+  description: 'Misha Cittadini is a Czech-born abstract painter based in the San Francisco Bay Area. Browse original paintings by series, exhibitions, and enquire about originals and commissions.',
   email: 'misha@cittadini.art',
-  instagram: 'https://www.instagram.com/',
-  location: 'Marin County, California',
+  instagram: 'https://www.instagram.com/mishacittadiniart/',
+  studio: 'ICB Building, Studio 107, 480 Gate 5 Rd, Sausalito, CA 94965',
+  location: 'Sausalito, California',
   // Commerce plug-ins (placeholders until Misha's own accounts exist; see docs/COMMERCE.md).
   commerce: {
     // Stripe Payment Links per artwork slug, e.g. { 'blue-hour': 'https://buy.stripe.com/...' }.

@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-const items = (await getCollection('exhibitions')).map((e) => e.data).sort((a, b) => b.year - a.year);
+const items = (await getCollection('exhibitions')).map((e) => e.data).sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
 ---
 <Base title="Exhibitions" description="Exhibitions, open studios and fairs featuring Misha Cittadini's work.">
   <h1>Exhibitions</h1>
   {items.length === 0 ? <p>Exhibition history coming soon.</p> : (
     <ul class="timeline">
-      {items.map((e) => <li><strong>{e.year}</strong> — {e.url ? <a href={e.url}>{e.title}</a> : e.title}{e.venue && `, ${e.venue}`}{e.city && `, ${e.city}`}{e.type && <span class="meta"> ({e.type})</span>}</li>)}
+      {items.map((e) => <li>{e.year && <><strong>{e.year}</strong> — </>}{e.url ? <a href={e.url}>{e.title}</a> : e.title}{e.venue && `, ${e.venue}`}{e.city && `, ${e.city}`}{e.type && <span class="meta"> ({e.type})</span>}</li>)}
     </ul>
   )}
 </Base>

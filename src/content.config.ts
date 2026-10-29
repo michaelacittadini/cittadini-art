@@ -28,7 +28,7 @@ const exhibitions = defineCollection({
   loader: file('src/data/exhibitions.json'),
   schema: z.object({
     id: z.string(),
-    year: z.number().int(),
+    year: z.number().int().optional(),
     title: z.string(),
     venue: z.string().optional(),
     city: z.string().optional(),

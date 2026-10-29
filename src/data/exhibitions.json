@@ -1,1 +1,176 @@
-[]
+[
+  {
+    "id": "e1",
+    "title": "63rd Stockton Art League National Juried Exhibition (Honorable Mention — one of seven awards; selected from 950+ entries)",
+    "venue": "Haggin Museum",
+    "city": "Stockton, CA",
+    "type": "group"
+  },
+  {
+    "id": "e2",
+    "title": "Exhibition at David Sutherland Showroom",
+    "venue": "David Sutherland Showroom",
+    "city": "Los Angeles, CA",
+    "type": "group"
+  },
+  {
+    "id": "e3",
+    "title": "Marin Open Studios",
+    "year": 2026,
+    "venue": "ICB Building, Studio 107",
+    "city": "Sausalito, CA",
+    "type": "open-studio"
+  },
+  {
+    "id": "e4",
+    "title": "Solo exhibition",
+    "year": 2026,
+    "venue": "Mill Valley Chamber of Commerce",
+    "city": "Mill Valley, CA",
+    "type": "solo"
+  },
+  {
+    "id": "e5",
+    "title": "Guest Artist (Feb–Mar 2026)",
+    "year": 2026,
+    "venue": "Healdsburg Center for the Arts (HCA)",
+    "city": "Healdsburg, CA",
+    "type": "group"
+  },
+  {
+    "id": "e6",
+    "title": "Graduate Exhibition",
+    "year": 2026,
+    "venue": "The Cannery, Academy of Art University",
+    "city": "San Francisco, CA",
+    "type": "group"
+  },
+  {
+    "id": "e7",
+    "title": "The Other Art Fair",
+    "year": 2026,
+    "venue": "The Other Art Fair",
+    "city": "Los Angeles, CA",
+    "type": "fair"
+  },
+  {
+    "id": "e8",
+    "title": "AAU Spring Show — Honorable Mention",
+    "year": 2026,
+    "venue": "Academy of Art University",
+    "city": "San Francisco, CA",
+    "type": "group"
+  },
+  {
+    "id": "e9",
+    "title": "ICB Open Studios",
+    "year": 2025,
+    "venue": "ICB Building",
+    "city": "Sausalito, CA",
+    "type": "open-studio"
+  },
+  {
+    "id": "e10",
+    "title": "Art Span Open Studios",
+    "year": 2025,
+    "venue": "Art Span",
+    "city": "San Francisco, CA",
+    "type": "open-studio"
+  },
+  {
+    "id": "e11",
+    "title": "The Other Art Fair",
+    "year": 2025,
+    "venue": "The Other Art Fair",
+    "city": "Los Angeles, CA",
+    "type": "fair"
+  },
+  {
+    "id": "e12",
+    "title": "Spring Show (Award Winner — Best Abstract)",
+    "year": 2025,
+    "venue": "Academy of Art University",
+    "city": "San Francisco, CA",
+    "type": "group"
+  },
+  {
+    "id": "e13",
+    "title": "MFA Student Exhibition",
+    "year": 2025,
+    "venue": "The Cannery, Academy of Art University",
+    "city": "San Francisco, CA",
+    "type": "group"
+  },
+  {
+    "id": "e14",
+    "title": "Superfine Art Fair",
+    "year": 2025,
+    "venue": "Fort Mason",
+    "city": "San Francisco, CA",
+    "type": "fair"
+  },
+  {
+    "id": "e15",
+    "title": "The Other Art Fair",
+    "year": 2025,
+    "venue": "The Other Art Fair",
+    "city": "Los Angeles, CA",
+    "type": "fair"
+  },
+  {
+    "id": "e16",
+    "title": "Eighth West Coast Biennial (Feb–May 2025)",
+    "year": 2025,
+    "venue": "Turtle Bay Exploration Park Museum",
+    "city": "Redding, CA",
+    "type": "group"
+  },
+  {
+    "id": "e17",
+    "title": "Anti-War, 4th Annual Juried Exhibition",
+    "year": 2024,
+    "venue": "HMVC Gallery (Times Square)",
+    "city": "New York, NY",
+    "type": "group"
+  },
+  {
+    "id": "e18",
+    "title": "Small Wanders",
+    "year": 2024,
+    "venue": "The Hummingbird & Dragonfly Art Gallery",
+    "city": "Los Angeles, CA",
+    "type": "group"
+  },
+  {
+    "id": "e19",
+    "title": "RTIA",
+    "year": 2024,
+    "venue": "RTIA",
+    "city": "Reno, NV",
+    "type": "group"
+  },
+  {
+    "id": "e20",
+    "title": "New Beginnings",
+    "year": 2024,
+    "venue": "Leavenworth and Beach Street Gallery",
+    "city": "San Francisco, CA",
+    "type": "group"
+  },
+  {
+    "id": "e21",
+    "title": "Superfine Art Fair",
+    "year": 2024,
+    "venue": "Fort Mason",
+    "city": "San Francisco, CA",
+    "type": "fair"
+  },
+  {
+    "id": "e22",
+    "title": "Spring Show",
+    "year": 2023,
+    "venue": "Academy of Art University",
+    "city": "San Francisco, CA",
+    "type": "group"
+  }
+]
