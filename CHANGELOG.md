@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+## v0.2.2 — 2026-10-29
 - Neutral black and grey palette (no blue or orange accents).
 
 ## v0.2.1 — 2026-10-29
