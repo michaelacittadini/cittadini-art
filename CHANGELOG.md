@@ -10,6 +10,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+- Works page: paintings grouped in the same order as the series (Resonance first, The Hours last).
+
 ## v0.2.6 — 2026-10-29
 - Exhibitions: AAU Spring Show 2026 now names the three works still on view at 601 Brannan St.
 

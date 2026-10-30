@@ -5,7 +5,8 @@ export type Artwork = CollectionEntry<'artworks'>;
 
 export async function allWorks(): Promise<Artwork[]> {
   const works = await getCollection('artworks');
-  return works.sort((a, b) => (b.data.order - a.data.order) || ((b.data.year ?? 0) - (a.data.year ?? 0)) || a.data.title.localeCompare(b.data.title));
+  const sr = (n?: string) => { const i = n ? seriesOrder.order.indexOf(n) : -1; return i < 0 ? 999 : i; };
+  return works.sort((a, b) => (sr(a.data.series) - sr(b.data.series)) || (b.data.order - a.data.order) || ((b.data.year ?? 0) - (a.data.year ?? 0)) || a.data.title.localeCompare(b.data.title));
 }
 
 export function slugify(s: string) {
