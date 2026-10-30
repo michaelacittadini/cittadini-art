@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+## v0.2.8 — 2026-10-29
 - Where Light Gathers: new unframed photos (unlit + lit).
 
 ## v0.2.7 — 2026-10-29
