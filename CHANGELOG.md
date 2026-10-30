@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+## v0.2.9 — 2026-10-29
 - Removed Soft Horizon I, Soft Horizon II, Wave of Blue and Orbital Resonance (Misha).
 
 ## v0.2.8 — 2026-10-29
