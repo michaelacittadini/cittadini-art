@@ -8,7 +8,7 @@ heightIn: 57
 series: "Second Light"
 status: available
 price: 12000
-images: ["./where-light-gathers-1.jpg"]
+images: ["./where-light-gathers-1.jpg", "./where-light-gathers-2.jpg"]
 featured: true
 order: 50
 instagram: "https://www.instagram.com/p/DeIgnX_mAyz/"
