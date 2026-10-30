@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+## v0.2.7 — 2026-10-29
 - Works page: paintings grouped in the same order as the series (Resonance first, The Hours last).
 
 ## v0.2.6 — 2026-10-29
