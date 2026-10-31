@@ -10,6 +10,12 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+- Home: "Painting of the month" is now a caption right under the hero painting.
+
+- Header: name is larger, with "Abstract painter, Sausalito, California" underneath on every page (removed from the home hero).
+
+- Home page: removed the second "Misha Cittadini" under the hero painting (name stays in the header; kept for search engines only).
+
 ## v0.2.9 — 2026-10-29
 - Removed Soft Horizon I, Soft Horizon II, Wave of Blue and Orbital Resonance (Misha).
 
