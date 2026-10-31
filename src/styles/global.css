@@ -146,3 +146,5 @@ a:hover { color: var(--muted); text-decoration-color: var(--fg); }
 .site-header { align-items: center; }
 .site-header .brand { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.1; }
 .brand-tagline { margin: .3rem 0 0; font-family: var(--sans); font-size: clamp(.9rem, 1.2vw, 1rem); color: var(--muted); letter-spacing: .01em; }
+.hero-fig { margin: 0; }
+.hero-fig .potm { margin-top: .75rem; }
