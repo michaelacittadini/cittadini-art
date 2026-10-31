@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 
+## v0.2.10 — 2026-10-31
 - Home: "Painting of the month" is now a caption right under the hero painting.
 
 - Header: name is larger, with "Abstract painter, Sausalito, California" underneath on every page (removed from the home hero).
