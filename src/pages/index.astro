@@ -19,7 +19,6 @@ const series = (await seriesList()).filter((s) => !(seriesOrder.hidden ?? []).in
       <a href={`/works/${hero.id}/`}><Image src={hero.data.images[0]} alt={hero.data.alt ?? hero.data.title} widths={[640, 960, 1400]} sizes="(max-width: 800px) 100vw, 60vw" loading="eager" fetchpriority="high" /></a>
       <div>
         <h1 class="sr-only">{site.name}</h1>
-        <p class="lede">{site.tagline}{site.location ? `, ${site.location}` : ''}.</p>
         <p><a class="btn primary" href="/works/">View works</a></p>
         <p class="potm">Painting of the month: <a href={`/works/${hero.id}/`}><em>{hero.data.title}</em></a></p>
       </div>

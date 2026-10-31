@@ -142,3 +142,7 @@ a { color: var(--fg); text-decoration-color: #b5b5b5; text-decoration-thickness:
 a:hover { color: var(--muted); text-decoration-color: var(--fg); }
 .btn:hover { background: #3a3a3a; border-color: #3a3a3a; color: #fff; }
 .ship-note { border-left-color: var(--line); }
+/* Header: larger name with tagline underneath (Misha 2026-10-31) */
+.site-header { align-items: center; }
+.site-header .brand { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.1; }
+.brand-tagline { margin: .3rem 0 0; font-family: var(--sans); font-size: clamp(.9rem, 1.2vw, 1rem); color: var(--muted); letter-spacing: .01em; }
