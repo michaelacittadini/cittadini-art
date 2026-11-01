@@ -8,7 +8,8 @@ heightIn: 12
 series: "Trade Winds"
 status: available
 price: 495
-images: ["./sirocco-1.jpg"]
+images: ["./sirocco-1.jpg", "./framed.jpg"]
+imageCaptions: ["Artwork", "Framed artwork"]
 order: 31
 instagram: "https://www.instagram.com/p/DdU8D5-mS4e/"
 ---

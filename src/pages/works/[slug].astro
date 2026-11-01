@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import ArtworkGallery from '../../components/ArtworkGallery.astro';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { allWorks, formatPrice, slugify, statusLabel } from '../../lib/works';
@@ -20,9 +20,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'VisualArtwork', name: d
 <Base title={d.title} description={desc} image={d.images[0]} jsonLd={ld}>
   <div class="artwork">
     <div>
-      {d.images.map((img, i) => (
-        <figure><Image src={img} alt={i === 0 ? alt : `${d.title}, view ${i + 1}`} widths={[640, 960, 1400, 2000]} sizes="(max-width: 860px) 100vw, 62vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} /></figure>
-      ))}
+      <ArtworkGallery images={d.images} captions={d.imageCaptions} title={d.title} alt={alt} />
     </div>
     <div>
       <h1>{d.title}</h1>

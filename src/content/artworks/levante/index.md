@@ -8,7 +8,8 @@ heightIn: 12
 series: "Trade Winds"
 status: available
 price: 495
-images: ["./levante-1.jpg"]
+images: ["./levante-1.jpg", "./studio-with-misha.jpg"]
+imageCaptions: ["Artwork", "Misha with Levante in her studio"]
 order: 34
 instagram: "https://www.instagram.com/p/DdmRo-lmspe/"
 ---

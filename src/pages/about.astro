@@ -1,7 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import painting from '../assets/studio/misha-painting.jpg';
+import detail from '../assets/studio/painting-detail.jpg';
+import portrait from '../assets/studio/misha-portrait.jpg';
+import withPaintings from '../assets/studio/misha-with-paintings.jpg';
 import { Content as Bio } from '../content/pages/about.md';
 ---
 <Base title="About" description="About Misha Cittadini: biography and artist statement.">
-  <div class="prose"><Bio /></div>
+  <div class="about-layout">
+    <figure class="about-portrait"><Image src={portrait} alt="Portrait of Misha Cittadini in front of her paintings" widths={[480, 800, 1200]} sizes="(max-width: 850px) 100vw, 35vw" loading="eager" /></figure>
+    <div class="prose"><Bio /></div>
+  </div>
+  <section class="studio-section" aria-labelledby="studio-heading">
+    <h2 id="studio-heading">In the studio</h2>
+    <div class="studio-photos">
+      <figure><Image src={painting} alt="Misha Cittadini brushing paint across a canvas in her studio" widths={[480, 800, 1200]} sizes="(max-width: 650px) 100vw, 33vw" loading="eager" /><figcaption>Misha at work in her studio</figcaption></figure>
+      <figure><Image src={detail} alt="Close-up of Misha painting layered blue and cream marks with a brush" widths={[480, 800, 1200]} sizes="(max-width: 650px) 100vw, 33vw" loading="lazy" /><figcaption>A closer look at the painting process</figcaption></figure>
+      <figure><Image src={withPaintings} alt="Misha standing between two large paintings in her studio" widths={[480, 800, 1200]} sizes="(max-width: 650px) 100vw, 33vw" loading="lazy" /><figcaption>Misha with her paintings</figcaption></figure>
+    </div>
+  </section>
 </Base>
