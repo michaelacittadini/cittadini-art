@@ -157,6 +157,20 @@ a:hover { color: var(--muted); text-decoration-color: var(--fg); }
 .artwork-gallery .gallery-thumbnails button[aria-pressed="true"] { border: 2px solid var(--fg); padding: 2px; }
 .artwork-gallery .gallery-thumbnails img { width: 100%; height: 100%; object-fit: contain; }
 
+/* Native touch/trackpad sliding, with no JavaScript required to swipe. */
+.gallery-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; }
+.artwork-gallery .gallery-track figure { flex: 0 0 100%; min-width: 0; margin: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+.gallery-image { width: 100%; aspect-ratio: var(--gallery-ratio); display: flex; align-items: center; justify-content: center; }
+.gallery-image img { width: 100%; height: 100%; object-fit: contain; }
+.gallery-navigation { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem; margin-top: .85rem; }
+.gallery-navigation button { width: 44px; height: 44px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); font: inherit; font-size: 1.3rem; cursor: pointer; }
+.gallery-navigation button:disabled { opacity: .3; cursor: default; }
+.gallery-navigation button:not(:disabled):hover { border-color: var(--fg); }
+.gallery-count { min-width: 3rem; text-align: center; color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; }
+.gallery-hint { margin-left: auto; color: var(--muted); font-size: .8rem; }
+.gallery-track:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .gallery-track { scroll-behavior: auto; } }
+
 /* Real studio photographs on About. */
 .studio-section { margin-bottom: 3rem; }
 .studio-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }

@@ -30,3 +30,11 @@ Museum source JPEG was re-encoded to standard RGB JPEG without cropping to make 
 About portrait supplied explicitly by Misha in Telegram, Oct 31, 2026 PT: workspace `media/inbound/openclaw-staged-3fc1e070-8cb8-4b9c-ba2b-c0dfe9279bd8/input-6447e4e8-c414-41c2-9095-a22c852a14b7.jpg` → `src/assets/studio/misha-portrait.jpg`. Full image retained, no crop.
 
 Misha then supplied a closer portrait: workspace `media/inbound/openclaw-staged-ba093eab-ecf3-4e18-8616-6536ab6c99bb/input-4fe38421-43d4-489b-8230-d9c44c3c0889.jpg` is used as `misha-portrait.jpg`; the first full-length photograph is retained as `misha-with-paintings.jpg` in the studio section.
+
+- `src/content/artworks/radiant-frequency/unlit.jpg` ← workspace `paintings/fiber-optic/Radiant_Frequency_2026_unlit.jpg` — Unlit artwork
+
+- `src/content/artworks/where-light-gathers/art-fair.jpg` ← workspace `paintings/fiber-optic/Where_Light_Gathers_TOAF_booth_2026-09.jpg` — Misha with Where Light Gathers at The Other Art Fair
+
+- `src/content/artworks/harmattan/office-mockup.jpg` ← workspace `media/mockups/harmattan/office-room.jpg` — Interior mockup — office
+
+- `src/content/artworks/where-light-gathers/office-mockup.jpg` ← workspace `media/mockups/shortcut-7606/office-room.jpg` — Interior mockup — office

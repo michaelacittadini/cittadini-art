@@ -9,6 +9,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## Unreleased
+- Artwork galleries: swipe between photos on phones, scroll with a trackpad, or use arrows, thumbnails and keyboard navigation; photo counters and reduced-motion support.
 
 ## v0.2.11 — 2026-10-31
 - About: Misha’s chosen portrait beside her biography, plus three studio and process photographs.

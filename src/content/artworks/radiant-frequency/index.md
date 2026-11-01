@@ -8,7 +8,8 @@ heightIn: 39
 series: "Second Light"
 status: available
 price: 8500
-images: ["./radiant-frequency-1.jpg"]
+images: ["./radiant-frequency-1.jpg","./unlit.jpg"]
+imageCaptions: ["Artwork","Unlit artwork"]
 featured: true
 order: 49
 instagram: "https://www.instagram.com/p/Dc4FtoYGxy5/"

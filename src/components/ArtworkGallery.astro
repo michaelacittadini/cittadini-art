@@ -8,55 +8,129 @@ interface Props {
   alt: string;
 }
 const { images, captions = [], title, alt } = Astro.props;
+const multiple = images.length > 1;
+const ratio = Math.max(.8, Math.min(1.5, images[0].width / images[0].height));
 ---
-<div class="artwork-gallery" data-artwork-gallery>
-  <div>
+<div class="artwork-gallery" data-artwork-gallery style={`--gallery-ratio: ${ratio}`}>
+  <div class="gallery-track" data-gallery-track tabindex={multiple ? 0 : undefined} role={multiple ? 'region' : undefined} aria-roledescription={multiple ? 'carousel' : undefined} aria-label={multiple ? `Photos of ${title}` : undefined}>
     {images.map((img, i) => (
-      <figure data-gallery-panel>
-        <Image src={img} alt={i === 0 ? alt : `${title} — ${captions[i] || `view ${i + 1}`}`} widths={[640, 960, 1400, 2000]} sizes="(max-width: 860px) 100vw, 62vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
+      <figure data-gallery-panel role={multiple ? 'group' : undefined} aria-roledescription={multiple ? 'slide' : undefined} aria-label={multiple ? `${i + 1} of ${images.length}` : undefined}>
+        <div class="gallery-image">
+          <Image src={img} alt={i === 0 ? alt : `${title} — ${captions[i] || `view ${i + 1}`}`} widths={[640, 960, 1400, 2000]} sizes="(max-width: 860px) 100vw, 62vw" loading={i < 2 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
+        </div>
         {captions[i] && <figcaption>{captions[i]}</figcaption>}
       </figure>
     ))}
   </div>
-  {images.length > 1 && (
-    <div class="gallery-thumbnails" aria-label={`Views of ${title}`} data-gallery-controls hidden>
-      {images.map((img, i) => (
-        <button type="button" data-gallery-index={i} aria-label={`Show ${captions[i] || `${title}, view ${i + 1}`}`} aria-pressed={i === 0 ? 'true' : 'false'}>
-          <Image src={img} alt="" width={140} height={140} fit="contain" loading="lazy" />
-        </button>
-      ))}
-    </div>
+  {multiple && (
+    <>
+      <div class="gallery-navigation" data-gallery-navigation hidden>
+        <button type="button" data-gallery-prev aria-label="Previous photo" disabled>←</button>
+        <span class="gallery-count" data-gallery-count role="status" aria-live="polite" aria-atomic="true">1 / {images.length}</span>
+        <button type="button" data-gallery-next aria-label="Next photo">→</button>
+        <span class="gallery-hint">Swipe or use the arrows</span>
+      </div>
+      <div class="gallery-thumbnails" aria-label={`Views of ${title}`} data-gallery-controls hidden>
+        {images.map((img, i) => (
+          <button type="button" data-gallery-index={i} aria-label={`Show ${captions[i] || `${title}, view ${i + 1}`}`} aria-pressed={i === 0 ? 'true' : 'false'}>
+            <Image src={img} alt="" width={140} height={140} fit="contain" loading="lazy" />
+          </button>
+        ))}
+      </div>
+    </>
   )}
 </div>
 <script>
   function initializeGalleries() {
     document.querySelectorAll<HTMLElement>('[data-artwork-gallery]').forEach((gallery) => {
       if (gallery.dataset.ready) return;
+      const track = gallery.querySelector<HTMLElement>('[data-gallery-track]');
       const panels = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-panel]'));
       const controls = gallery.querySelector<HTMLElement>('[data-gallery-controls]');
+      const navigation = gallery.querySelector<HTMLElement>('[data-gallery-navigation]');
+      const previous = gallery.querySelector<HTMLButtonElement>('[data-gallery-prev]');
+      const next = gallery.querySelector<HTMLButtonElement>('[data-gallery-next]');
+      const count = gallery.querySelector<HTMLElement>('[data-gallery-count]');
       const buttons = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-index]'));
-      if (!controls || panels.length < 2) return;
+      if (!track || !controls || !navigation || !previous || !next || !count || panels.length < 2) return;
       gallery.dataset.ready = 'true';
-      const select = (index: number) => {
-        panels.forEach((panel, i) => {
-          panel.hidden = i !== index;
-          if (i === index) panel.querySelectorAll('img').forEach((img) => { img.loading = 'eager'; });
-        });
+      let current = 0;
+      let stable = 0;
+      let resizing = false;
+      let requested = 0;
+      let scrolling = false;
+      let frame = 0;
+      let settleTimer: ReturnType<typeof setTimeout>;
+      const update = (index: number) => {
+        current = index;
         buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+        previous.disabled = index === 0;
+        next.disabled = index === panels.length - 1;
+        const label = `${index + 1} / ${panels.length}`;
+        if (count.textContent !== label) count.textContent = label;
       };
+      const select = (index: number) => {
+        requested = Math.max(0, Math.min(panels.length - 1, index));
+        scrolling = true;
+        panels[requested].querySelectorAll('img').forEach((img) => { img.loading = 'eager'; });
+        track.scrollTo({
+          left: requested * track.clientWidth,
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+        });
+      };
+      const sync = () => {
+        if (resizing) return;
+        const index = Math.max(0, Math.min(panels.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
+        update(index);
+      };
+      const settled = () => { if (resizing) return; sync(); requested = current; stable = current; scrolling = false; };
+      track.addEventListener('scroll', () => {
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(sync);
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(settled, 150);
+      }, { passive: true });
+      track.addEventListener('scrollend', settled);
+      previous.addEventListener('click', () => select((scrolling ? requested : current) - 1));
+      next.addEventListener('click', () => select((scrolling ? requested : current) + 1));
+      const keyboardIndex = (event: KeyboardEvent, index: number) => {
+        if (event.key === 'ArrowRight') return Math.min(index + 1, panels.length - 1);
+        if (event.key === 'ArrowLeft') return Math.max(index - 1, 0);
+        if (event.key === 'Home') return 0;
+        if (event.key === 'End') return panels.length - 1;
+        return null;
+      };
+      track.addEventListener('keydown', (event) => {
+        const index = keyboardIndex(event, scrolling ? requested : current);
+        if (index === null) return;
+        event.preventDefault(); select(index);
+      });
       buttons.forEach((button, index) => {
         button.addEventListener('click', () => select(index));
         button.addEventListener('keydown', (event) => {
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
-          else if (event.key === 'ArrowLeft') next = (index - 1 + buttons.length) % buttons.length;
-          else if (event.key === 'Home') next = 0;
-          else if (event.key === 'End') next = buttons.length - 1;
-          else return;
-          event.preventDefault(); select(next); buttons[next].focus();
+          const target = keyboardIndex(event, index);
+          if (target === null) return;
+          event.preventDefault(); select(target); buttons[target].focus();
         });
       });
-      select(0); controls.hidden = false;
+      let lastWidth = track.clientWidth;
+      new ResizeObserver(() => {
+        if (track.clientWidth === lastWidth) return;
+        lastWidth = track.clientWidth;
+        const index = scrolling ? requested : stable;
+        resizing = true;
+        track.style.scrollSnapType = 'none';
+        track.scrollLeft = index * track.clientWidth;
+        requestAnimationFrame(() => {
+          track.scrollLeft = index * track.clientWidth;
+          track.style.scrollSnapType = '';
+          resizing = false;
+          update(index); stable = index; requested = index; scrolling = false;
+        });
+      }).observe(track);
+      update(0);
+      controls.hidden = false;
+      navigation.hidden = false;
     });
   }
   initializeGalleries();
