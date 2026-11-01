@@ -8,7 +8,8 @@ heightIn: 60
 series: "Resonance"
 status: available
 price: 7500
-images: ["./deep-current-1.jpg"]
+images: ["./deep-current-1.jpg", "./showroom.jpg"]
+imageCaptions: ["Artwork", "Installed at the David Sutherland Showroom, Los Angeles"]
 order: 46
 instagram: "https://www.instagram.com/p/De0O9xemQvu/"
 ---

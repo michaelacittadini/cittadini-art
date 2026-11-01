@@ -148,3 +148,25 @@ a:hover { color: var(--muted); text-decoration-color: var(--fg); }
 .brand-tagline { margin: .3rem 0 0; font-family: var(--sans); font-size: clamp(.9rem, 1.2vw, 1rem); color: var(--muted); letter-spacing: .01em; }
 .hero-fig { margin: 0; }
 .hero-fig .potm { margin-top: .75rem; }
+
+/* Artwork views: keep the original first, with labelled context images. */
+.artwork-gallery [hidden] { display: none !important; }
+.artwork-gallery figcaption { color: var(--muted); font-size: .85rem; margin: .6rem 0 0; }
+.artwork-gallery .gallery-thumbnails { display: flex; flex-wrap: wrap; gap: .65rem; margin: .75rem 0 1.5rem; }
+.artwork-gallery .gallery-thumbnails button { width: 76px; height: 76px; padding: 3px; border: 1px solid var(--line); border-radius: 0; background: var(--bg); cursor: pointer; }
+.artwork-gallery .gallery-thumbnails button[aria-pressed="true"] { border: 2px solid var(--fg); padding: 2px; }
+.artwork-gallery .gallery-thumbnails img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Real studio photographs on About. */
+.studio-section { margin-bottom: 3rem; }
+.studio-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.studio-photos figure { margin: 0; }
+.studio-photos img { width: 100%; height: auto; display: block; }
+.studio-photos figcaption { color: var(--muted); font-size: .85rem; margin-top: .6rem; }
+@media (max-width: 650px) { .studio-photos { grid-template-columns: 1fr; } }
+
+.about-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; margin-bottom: 3rem; }
+.about-portrait { margin: 0; }
+.about-portrait img { display: block; width: 100%; height: auto; }
+.about-layout .prose { min-width: 0; }
+@media (max-width: 850px) { .about-layout { grid-template-columns: 1fr; } .about-portrait { max-width: 520px; } }

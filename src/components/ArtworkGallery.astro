@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+interface Props {
+  images: ImageMetadata[];
+  captions?: string[];
+  title: string;
+  alt: string;
+}
+const { images, captions = [], title, alt } = Astro.props;
+---
+<div class="artwork-gallery" data-artwork-gallery>
+  <div>
+    {images.map((img, i) => (
+      <figure data-gallery-panel>
+        <Image src={img} alt={i === 0 ? alt : `${title} — ${captions[i] || `view ${i + 1}`}`} widths={[640, 960, 1400, 2000]} sizes="(max-width: 860px) 100vw, 62vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
+        {captions[i] && <figcaption>{captions[i]}</figcaption>}
+      </figure>
+    ))}
+  </div>
+  {images.length > 1 && (
+    <div class="gallery-thumbnails" aria-label={`Views of ${title}`} data-gallery-controls hidden>
+      {images.map((img, i) => (
+        <button type="button" data-gallery-index={i} aria-label={`Show ${captions[i] || `${title}, view ${i + 1}`}`} aria-pressed={i === 0 ? 'true' : 'false'}>
+          <Image src={img} alt="" width={140} height={140} fit="contain" loading="lazy" />
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+<script>
+  function initializeGalleries() {
+    document.querySelectorAll<HTMLElement>('[data-artwork-gallery]').forEach((gallery) => {
+      if (gallery.dataset.ready) return;
+      const panels = Array.from(gallery.querySelectorAll<HTMLElement>('[data-gallery-panel]'));
+      const controls = gallery.querySelector<HTMLElement>('[data-gallery-controls]');
+      const buttons = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-index]'));
+      if (!controls || panels.length < 2) return;
+      gallery.dataset.ready = 'true';
+      const select = (index: number) => {
+        panels.forEach((panel, i) => {
+          panel.hidden = i !== index;
+          if (i === index) panel.querySelectorAll('img').forEach((img) => { img.loading = 'eager'; });
+        });
+        buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+      };
+      buttons.forEach((button, index) => {
+        button.addEventListener('click', () => select(index));
+        button.addEventListener('keydown', (event) => {
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
+          else if (event.key === 'ArrowLeft') next = (index - 1 + buttons.length) % buttons.length;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = buttons.length - 1;
+          else return;
+          event.preventDefault(); select(next); buttons[next].focus();
+        });
+      });
+      select(0); controls.hidden = false;
+    });
+  }
+  initializeGalleries();
+  document.addEventListener('astro:page-load', initializeGalleries);
+</script>

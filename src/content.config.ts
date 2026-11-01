@@ -17,6 +17,7 @@ const artworks = defineCollection({
       status: z.enum(['available', 'sold', 'nfs', 'commission', 'unknown']).default('unknown'),
       price: z.number().nullable().optional(),
       images: z.array(image()).min(1),
+      imageCaptions: z.array(z.string()).optional(),
       alt: z.string().optional(),
       featured: z.boolean().default(false),
       order: z.number().default(0),

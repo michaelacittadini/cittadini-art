@@ -8,7 +8,8 @@ heightIn: 57
 series: "Second Light"
 status: available
 price: 12000
-images: ["./where-light-gathers-1.jpg", "./where-light-gathers-2.jpg"]
+images: ["./where-light-gathers-1.jpg", "./where-light-gathers-2.jpg", "./living-room-mockup.jpg", "./gallery-room-mockup.jpg"]
+imageCaptions: ["Artwork", "Alternate artwork view", "Interior mockup — living room", "Interior mockup — gallery"]
 featured: true
 order: 50
 instagram: "https://www.instagram.com/p/DeIgnX_mAyz/"

@@ -9,6 +9,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## Unreleased
+- About: Misha’s chosen portrait beside her biography, plus three studio and process photographs.
+- Artwork pages: selectable photo galleries with captions distinguishing real photographs from interior mockups; reuse existing framed, studio and room images.
 
 ## v0.2.10 — 2026-10-31
 - Home: "Painting of the month" is now a caption right under the hero painting.
