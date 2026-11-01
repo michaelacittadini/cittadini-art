@@ -8,8 +8,8 @@ heightIn: 12
 series: "Trade Winds"
 status: available
 price: 495
-images: ["./harmattan-1.jpg", "./framed.jpg", "./living-room-mockup.jpg", "./bedroom-mockup.jpg"]
-imageCaptions: ["Artwork", "Framed artwork", "Interior mockup — living room", "Interior mockup — bedroom"]
+images: ["./harmattan-1.jpg","./framed.jpg","./living-room-mockup.jpg","./bedroom-mockup.jpg","./office-mockup.jpg"]
+imageCaptions: ["Artwork","Framed artwork","Interior mockup — living room","Interior mockup — bedroom","Interior mockup — office"]
 order: 32
 instagram: "https://www.instagram.com/p/DdU8D5-mS4e/"
 ---
