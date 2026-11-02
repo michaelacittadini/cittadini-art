@@ -10,6 +10,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## Unreleased
 - Room photos added for Subjective Topographies I & II and Kinetic Currents (Misha's own), plus room mockups for Warm Eclipse, The Space Between, Almost Visible and Aperture of Becoming.
+- Misha's own room photos added for Summer Echo II and Soft Undertow.
 
 ## v0.3.1 — 2026-11-02
 - Add The Weight of Silence, Ember Frequency, Aperture of Becoming, and The Space Between to the artwork catalog.
