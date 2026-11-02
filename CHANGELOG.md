@@ -9,6 +9,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## Unreleased
+
+## v0.3.2 — 2026-11-02
 - Room photos added for Subjective Topographies I & II and Kinetic Currents (Misha's own), plus room mockups for Warm Eclipse, The Space Between, Almost Visible and Aperture of Becoming.
 - Misha's own room photos added for Summer Echo II and Soft Undertow.
 
