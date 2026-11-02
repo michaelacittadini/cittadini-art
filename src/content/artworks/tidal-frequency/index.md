@@ -8,7 +8,8 @@ heightIn: 39.4
 series: "Resonance"
 status: available
 price: 3500
-images: ["./tidal-frequency-1.jpg"]
+images: ["./tidal-frequency-1.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
+imageCaptions: ["Artwork", "Interior mockup", "Interior mockup", "Interior mockup"]
 order: 27
 instagram: "https://www.instagram.com/reel/DcCBIVRBwDU/"
 ---
