@@ -8,7 +8,7 @@ heightIn: 39.4
 series: "Resonance"
 status: available
 price: 3500
-images: ["./kinetic-currents-1.jpg"]
+images: ["./kinetic-currents-1.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
 order: 28
 ---
 

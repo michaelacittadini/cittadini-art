@@ -8,7 +8,7 @@ heightIn: 36
 series: "Palm Trees"
 status: available
 price: 3500
-images: ["./summer-echo-ii-1.jpg"]
+images: ["./summer-echo-ii-1.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
 order: 11
 ---
 

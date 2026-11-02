@@ -8,7 +8,7 @@ heightIn: 59
 series: "Resonance"
 status: available
 price: 7500
-images: ["./aperture-of-becoming-1.jpg"]
+images: ["./aperture-of-becoming-1.jpg", "./interior-1.jpg", "./interior-2.jpg", "./interior-3.jpg"]
 ---
 
 Part of my Resonance Series, exploring the unseen frequencies and forces that move through the world.
