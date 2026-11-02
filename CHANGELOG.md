@@ -9,6 +9,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## Unreleased
+
+## v0.3.3 — 2026-11-02
 - Moved one room photo from Summer Echo II to Summer Echo I, where it belongs.
 
 ## v0.3.2 — 2026-11-02
