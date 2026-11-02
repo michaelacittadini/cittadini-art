@@ -8,7 +8,8 @@ heightIn: 57
 series: "Interference"
 status: available
 price: 7500
-images: ["./still-point-1.jpg"]
+images: ["./still-point-1.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
+imageCaptions: ["Artwork", "Interior mockup", "Interior mockup", "Interior mockup"]
 featured: true
 order: 52
 instagram: "https://www.instagram.com/p/Dd9fx3jmHbS/"

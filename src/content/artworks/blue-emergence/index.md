@@ -8,8 +8,8 @@ heightIn: 59
 series: "Resonance"
 status: available
 price: 7500
-images: ["./blue-emergence-1.jpg", "./living-room-mockup.jpg"]
-imageCaptions: ["Artwork", "Interior mockup — living room"]
+images: ["./blue-emergence-1.jpg", "./living-room-mockup.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
+imageCaptions: ["Artwork", "Interior mockup — living room", "Interior mockup", "Interior mockup", "Interior mockup"]
 featured: true
 order: 48
 ---

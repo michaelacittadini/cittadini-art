@@ -8,8 +8,8 @@ heightIn: 57
 series: "Second Light"
 status: available
 price: 12000
-images: ["./where-light-gathers-1.jpg","./where-light-gathers-2.jpg","./living-room-mockup.jpg","./gallery-room-mockup.jpg","./art-fair.jpg","./office-mockup.jpg"]
-imageCaptions: ["Artwork","Alternate artwork view","Interior mockup — living room","Interior mockup — gallery","Misha with Where Light Gathers at The Other Art Fair","Interior mockup — office"]
+images: ["./where-light-gathers-1.jpg", "./where-light-gathers-2.jpg", "./living-room-mockup.jpg", "./gallery-room-mockup.jpg", "./art-fair.jpg", "./office-mockup.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg"]
+imageCaptions: ["Artwork", "Alternate artwork view", "Interior mockup — living room", "Interior mockup — gallery", "Misha with Where Light Gathers at The Other Art Fair", "Interior mockup — office", "Interior mockup", "Interior mockup"]
 featured: true
 order: 50
 instagram: "https://www.instagram.com/p/DeIgnX_mAyz/"
