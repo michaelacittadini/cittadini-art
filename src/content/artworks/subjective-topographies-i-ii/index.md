@@ -8,7 +8,7 @@ heightIn: 56
 series: "Resonance"
 status: available
 price: 12000
-images: ["./subjective-topographies-i-ii-1.jpg"]
+images: ["./subjective-topographies-i-ii-1.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
 order: 29
 instagram: "https://www.instagram.com/p/DaLFpfhCM0J/"
 ---

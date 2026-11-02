@@ -8,7 +8,7 @@ heightIn: 24
 series: "Interference"
 status: available
 price: 1500
-images: ["./warm-eclipse-1.jpg"]
+images: ["./warm-eclipse-1.jpg", "./interior-1.jpg", "./interior-2.jpg", "./interior-3.jpg"]
 featured: true
 order: 51
 instagram: "https://www.instagram.com/p/Dd9fx3jmHbS/"
