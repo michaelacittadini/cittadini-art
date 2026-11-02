@@ -8,7 +8,8 @@ heightIn: 59
 series: "Resonance"
 status: available
 price: 7500
-images: ["./ember-frequency-1.jpg"]
+images: ["./ember-frequency-1.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
+imageCaptions: ["Artwork", "Interior mockup", "Interior mockup", "Interior mockup"]
 ---
 
 Part of my Resonance Series, exploring the unseen frequencies and forces that move through the world.

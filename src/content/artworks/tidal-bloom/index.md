@@ -8,7 +8,8 @@ heightIn: 45
 series: "Interference"
 status: available
 price: 3500
-images: ["./tidal-bloom-1.jpg"]
+images: ["./tidal-bloom-1.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
+imageCaptions: ["Artwork", "Interior mockup", "Interior mockup", "Interior mockup"]
 featured: true
 order: 53
 instagram: "https://www.instagram.com/p/Dem2e_AAe1V/"

@@ -7,8 +7,8 @@ widthIn: 36
 heightIn: 48
 status: available
 price: 3500
-images: ["./black-wave-1.jpg", "./haggin-museum.jpg"]
-imageCaptions: ["Artwork", "Misha with Black Wave at the Haggin Museum"]
+images: ["./black-wave-1.jpg", "./haggin-museum.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
+imageCaptions: ["Artwork", "Misha with Black Wave at the Haggin Museum", "Interior mockup", "Interior mockup", "Interior mockup"]
 order: 8
 instagram: "https://www.instagram.com/reel/Ddb9RqSh-vG/"
 ---
