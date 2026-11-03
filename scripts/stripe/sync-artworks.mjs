@@ -12,6 +12,12 @@ import { stripe, mode } from './lib.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const TAX = process.argv.includes('--tax');
+// Online checkout only for smaller works (Misha 2026-11-02): larger paintings stay "Enquire"
+// so she can quote crating/shipping per collector. US shipping only, flat fee per size band.
+const MAX_ONLINE_PRICE = Number(process.env.MAX_ONLINE_PRICE || 1500);
+function shippingCents(w) { return w.price <= 500 ? 10000 : 15000; } // $100 small (12x12 etc), $150 up to 24x24
+const SHIP_TAX_CODE = 'txcd_92010001'; // Stripe Tax: shipping
+const GOODS_TAX_CODE = 'txcd_99999999'; // Stripe Tax: general tangible goods
 const SITE = process.env.SITE_URL || 'https://cittadini.art';
 const base = 'src/content/artworks';
 const out = 'src/data/stripe-links.json';
@@ -39,8 +45,17 @@ async function findProduct(slug) {
   return r.data[0];
 }
 
+const shipPriceCache = {};
+async function shippingPrice(amount) {
+  if (shipPriceCache[amount]) return shipPriceCache[amount];
+  const key = `shipping-us-${amount}`;
+  let prod = (await stripe('GET', '/products/search', { query: `metadata['slug']:'${key}'`, limit: 1 })).data[0];
+  if (!prod) prod = await stripe('POST', '/products', { name: 'Shipping & handling (US)', tax_code: SHIP_TAX_CODE, metadata: { slug: key, kind: 'shipping' },
+    default_price_data: { currency: 'usd', unit_amount: amount, tax_behavior: 'exclusive' } });
+  return (shipPriceCache[amount] = prod.default_price);
+}
 for (const w of works) {
-  const sellable = w.status === 'available' && typeof w.price === 'number' && w.price > 0;
+  const sellable = w.status === 'available' && typeof w.price === 'number' && w.price > 0 && w.price <= MAX_ONLINE_PRICE;
   const cents = sellable ? Math.round(w.price * 100) : 0;
   if (DRY) { if (sellable) console.log(`would sell ${w.slug} $${w.price}`); continue; }
   let product = await findProduct(w.slug);
@@ -69,16 +84,16 @@ for (const w of works) {
   }
   const existing = (await stripe('GET', '/payment_links', { active: true, limit: 100 })).data.find((l) => l.metadata?.slug === w.slug);
   let link = existing;
-  if (existing && (priceChanged || Boolean(existing.automatic_tax?.enabled) !== TAX)) { await stripe('POST', `/payment_links/${existing.id}`, { active: false }); link = null; }
+  if (existing && (existing.metadata?.ship !== String(shippingCents(w)) || priceChanged || Boolean(existing.automatic_tax?.enabled) !== TAX)) { await stripe('POST', `/payment_links/${existing.id}`, { active: false }); link = null; }
   if (!link) {
     link = await stripe('POST', '/payment_links', {
-      line_items: { 0: { price: priceId, quantity: 1 } },
+      line_items: { 0: { price: priceId, quantity: 1 }, 1: { price: await shippingPrice(shippingCents(w)), quantity: 1 } },
       restrictions: { completed_sessions: { limit: 1 } },
-      shipping_address_collection: { allowed_countries: { 0: 'US', 1: 'CA', 2: 'GB', 3: 'AU', 4: 'NZ', 5: 'CZ', 6: 'DE', 7: 'FR', 8: 'IT', 9: 'NL' } },
+      shipping_address_collection: { allowed_countries: { 0: 'US' } },
       phone_number_collection: { enabled: true },
       automatic_tax: { enabled: TAX },
       after_completion: { type: 'redirect', redirect: { url: `${SITE}/thanks/?work=${w.slug}` } },
-      metadata: { slug: w.slug },
+      metadata: { slug: w.slug, ship: String(shippingCents(w)) },
     });
   }
   links[w.slug] = link.url;
