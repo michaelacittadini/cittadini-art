@@ -9,6 +9,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## Unreleased
+
+## v0.4.0 — 2026-11-02
 - Buy buttons (Stripe) on works up to $1,500: US shipping $100 (up to $500) or $150 (up to $1,500) plus California sales tax at checkout. Larger paintings keep "Enquire".
 
 ## v0.3.3 — 2026-11-02
