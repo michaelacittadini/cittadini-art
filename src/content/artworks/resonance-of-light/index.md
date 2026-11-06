@@ -5,7 +5,7 @@ medium: "Acrylic, ink, spray paint & fiber optic light on canvas"
 dimensions: "36 × 48 × 2 in"
 widthIn: 36
 heightIn: 48
-series: "Second Light"
+series: "Secret Light"
 status: sold
 images: ["./resonance-of-light-1.jpg"]
 order: 13
