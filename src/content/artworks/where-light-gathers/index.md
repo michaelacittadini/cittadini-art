@@ -5,7 +5,7 @@ medium: "Acrylic, Ink, Spray Paint on Fiber-Optic Light Canvas"
 dimensions: "42.5 × 57 × 3.5 in"
 widthIn: 42.5
 heightIn: 57
-series: "Second Light"
+series: "Secret Light"
 status: available
 price: 12000
 images: ["./where-light-gathers-1.jpg", "./where-light-gathers-2.jpg", "./living-room-mockup.jpg", "./gallery-room-mockup.jpg", "./art-fair.jpg", "./office-mockup.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg"]

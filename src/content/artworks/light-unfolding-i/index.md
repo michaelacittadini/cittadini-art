@@ -5,7 +5,7 @@ medium: "Acrylic, Ink, Spray Paint & Fiber Optic Light on Canvas"
 dimensions: "48 × 36 × 2.5 in"
 widthIn: 48
 heightIn: 36
-series: "Second Light"
+series: "Secret Light"
 status: available
 price: 3500
 images: ["./light-unfolding-i-1.jpg"]

@@ -5,7 +5,7 @@ medium: "Acrylic, Ink, Spray Paint on Fiber-Optic Light Canvas"
 dimensions: "53 × 39 × 1.8 in"
 widthIn: 53
 heightIn: 39
-series: "Second Light"
+series: "Secret Light"
 status: available
 price: 8500
 images: ["./radiant-frequency-1.jpg", "./unlit.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
