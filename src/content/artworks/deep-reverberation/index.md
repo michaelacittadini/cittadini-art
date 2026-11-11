@@ -1,5 +1,5 @@
 ---
-title: "Reverberation"
+title: "Deep Reverberation"
 year: 2026
 medium: "Acrylic, ink, spray paint on raw canvas"
 dimensions: "38 × 45 in"
@@ -8,7 +8,7 @@ heightIn: 45
 series: "Resonance"
 status: available
 price: 3500
-images: ["./reverberation-1.jpg"]
+images: ["./deep-reverberation-1.jpg"]
 ---
 
 A single gesture echoes outward through translucent layers, each pass a little softer than the last. Part of the Resonance series.
