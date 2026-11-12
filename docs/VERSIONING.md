@@ -3,7 +3,7 @@
 Rule: nothing goes live on cittadini.art without a version number.
 
 1. Work on a branch, build, show Misha the preview, merge to main on her OK.
-2. While working, add a plain-English line under `## Unreleased` in CHANGELOG.md.
+2. While working, add a plain-English line under `## [Unreleased]` in CHANGELOG.md.
 3. `npm run release -- patch` (or `minor` / `major`, see CHANGELOG.md for which). This bumps
    package.json, dates the CHANGELOG entry, commits "Release vX.Y.Z", tags vX.Y.Z and pushes both.
 4. `npm run publish`. It runs `scripts/check-version.mjs --release` first and refuses unless HEAD is
