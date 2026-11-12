@@ -9,6 +9,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## Unreleased
+- Fragment of a Shell marked sold.
 
 ## v0.4.2 — 2026-11-11
 - Added the Fragments series (six 12 × 12 in works, $495, Buy buttons) and five new paintings: The Memory of Light, Deep Reverberation, Overtone, Silent Echo (Resonance) and Where Waves Meet (Interference).
