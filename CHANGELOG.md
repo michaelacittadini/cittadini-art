@@ -12,6 +12,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+## [v0.4.6] - 2026-11-12
 - Renamed What the Tide Remembers of Fire to Tide Remembers.
 
 ## [v0.4.5] - 2026-11-12
