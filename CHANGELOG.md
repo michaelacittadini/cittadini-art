@@ -11,6 +11,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## [Unreleased]
+
+## [v0.4.5] - 2026-11-12
 - Stripe scripts read STRIPE_API_KEY from ~/.openclaw/.env when it is not already set in the environment.
 - CHANGELOG.md now uses Keep a Changelog headings ("## [vX.Y.Z] - YYYY-MM-DD"); release and version-check scripts updated to match.
 ## [v0.4.4] - 2026-11-12
