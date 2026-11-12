@@ -1,6 +1,11 @@
 // Minimal Stripe REST client (no dependency). Key comes ONLY from env STRIPE_API_KEY
 // (on oc-misha: ~/.openclaw/.env). Never commit keys. Restricted keys (rk_...) are preferred.
-export const key = process.env.STRIPE_API_KEY || '';
+import { readFileSync } from 'node:fs';
+import { homedir } from 'node:os';
+function envFileKey() { // fallback: STRIPE_API_KEY=... line in ~/.openclaw/.env (not in git)
+  try { const m = readFileSync(homedir() + '/.openclaw/.env', 'utf8').match(/^STRIPE_API_KEY=(.*)$/m); return m ? m[1].trim().replace(/^['"]|['"]$/g, '') : ''; } catch { return ''; }
+}
+export const key = process.env.STRIPE_API_KEY || envFileKey();
 export const mode = key.includes('_live_') ? 'live' : key.includes('_test_') ? 'test' : 'none';
 
 function enc(obj, prefix = '', out = []) {
