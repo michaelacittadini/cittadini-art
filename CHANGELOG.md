@@ -12,6 +12,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+- Renamed What the Tide Remembers of Fire to Tide Remembers.
+
 ## [v0.4.5] - 2026-11-12
 - Stripe scripts read STRIPE_API_KEY from ~/.openclaw/.env when it is not already set in the environment.
 - CHANGELOG.md now uses Keep a Changelog headings ("## [vX.Y.Z] - YYYY-MM-DD"); release and version-check scripts updated to match.
