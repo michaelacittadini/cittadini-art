@@ -16,6 +16,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - Renamed What the Tide Remembers of Fire to Tide Remembers.
 
 ## [v0.4.5] - 2026-11-12
+- Added What the Tide Remembers of Fire (Interference, 38 × 45 in, $3,500).
 - Stripe scripts read STRIPE_API_KEY from ~/.openclaw/.env when it is not already set in the environment.
 - CHANGELOG.md now uses Keep a Changelog headings ("## [vX.Y.Z] - YYYY-MM-DD"); release and version-check scripts updated to match.
 ## [v0.4.4] - 2026-11-12
