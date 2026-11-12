@@ -9,6 +9,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## Unreleased
+- Buy buttons are live on the five available Fragments.
 
 ## v0.4.3 — 2026-11-11
 - Fragment of a Shell marked sold.
