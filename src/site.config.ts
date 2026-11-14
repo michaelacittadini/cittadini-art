@@ -16,6 +16,8 @@ export const site = {
     // src/data/stripe-links.json (public URLs only, no secrets). Only LIVE-mode links are shown on the site.
     // Works without a link show "Enquire" instead of "Buy".
     stripePaymentLinks: (stripeLinks.mode === 'live' || import.meta.env.PUBLIC_STRIPE_TEST === '1' ? stripeLinks.links : {}) as Record<string, string>,
+    // Studio-pickup links (no shipping, 9.25% CA sales tax included), from scripts/stripe/sync-pickup-links.mjs.
+    stripePickupLinks: (stripeLinks.mode === 'live' || import.meta.env.PUBLIC_STRIPE_TEST === '1' ? (stripeLinks as { pickup?: Record<string, string> }).pickup ?? {} : {}) as Record<string, string>,
     // Prodigi print-on-demand: set to true once a Prodigi account + product SKUs are configured.
     printsEnabled: false,
   },

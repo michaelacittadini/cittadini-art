@@ -82,7 +82,7 @@ for (const w of works) {
     if (price) await stripe('POST', `/prices/${price.id}`, { active: false });
     priceId = np.id; priceChanged = true;
   }
-  const existing = (await stripe('GET', '/payment_links', { active: true, limit: 100 })).data.find((l) => l.metadata?.slug === w.slug);
+  const existing = (await stripe('GET', '/payment_links', { active: true, limit: 100 })).data.find((l) => l.metadata?.slug === w.slug && l.metadata?.kind !== 'pickup');
   let link = existing;
   if (existing && (existing.metadata?.ship !== String(shippingCents(w)) || priceChanged || Boolean(existing.automatic_tax?.enabled) !== TAX)) { await stripe('POST', `/payment_links/${existing.id}`, { active: false }); link = null; }
   if (!link) {
@@ -100,6 +100,6 @@ for (const w of works) {
   console.log(`${w.slug}: $${w.price} -> ${link.url}`);
 }
 if (!DRY) {
-  fs.writeFileSync(out, JSON.stringify({ mode, updated: new Date().toISOString(), links }, null, 2) + '\n');
+  fs.writeFileSync(out, JSON.stringify({ mode, updated: new Date().toISOString(), links, pickup: Object.fromEntries(Object.entries(prev.pickup || {}).filter(([k]) => links[k])) }, null, 2) + '\n');
   console.log(`wrote ${out} (${Object.keys(links).length} links, previously ${Object.keys(prev.links || {}).length})`);
 }
