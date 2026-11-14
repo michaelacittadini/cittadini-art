@@ -12,6 +12,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+## [v0.5.1] - 2026-11-14
 - Fragment of a Bloom and Fragment of a Garden marked sold (The Big Open, Nov 14).
 
 ## [v0.5.0] - 2026-11-14
