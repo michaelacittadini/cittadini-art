@@ -6,7 +6,7 @@ dimensions: "12 × 12 in"
 widthIn: 12
 heightIn: 12
 series: "Fragments"
-status: available
+status: sold
 price: 495
 images: ["./fragment-of-a-canyon-1.jpg"]
 ---
