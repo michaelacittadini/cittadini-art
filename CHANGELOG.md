@@ -12,6 +12,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+## [v0.4.7] - 2026-11-14
 - Fragment of a Canyon marked sold (sold at The Big Open, Nov 14).
 
 ## [v0.4.6] - 2026-11-12
