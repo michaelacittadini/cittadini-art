@@ -12,6 +12,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+- Fragment of a Bloom and Fragment of a Garden marked sold (The Big Open, Nov 14).
+
 ## [v0.5.0] - 2026-11-14
 - Studio pickup checkout: every work sold online gets a second "Buy with studio pickup" button (no shipping, 9.25% California sales tax included, matching the studio labels). New script scripts/stripe/sync-pickup-links.mjs; it also switches off the other link when a work sells.
 
