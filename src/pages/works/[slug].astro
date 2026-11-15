@@ -33,11 +33,20 @@ const ld = { '@context': 'https://schema.org', '@type': 'VisualArtwork', name: d
         {statusLabel[d.status] && <><dt>Availability</dt><dd>{statusLabel[d.status]}{d.status === 'available' && d.price ? ` — ${formatPrice(d.price)}` : ''}</dd></>}
       </dl>
       <div class="prose"><Content /></div>
-      <p>
-        {d.status === 'available' && buy ? <><a class="btn primary" href={buy}>Buy original</a>{pickup && <> <a class="btn" href={pickup}>Buy with studio pickup</a></>}</> : <a class="btn primary" href={`mailto:${site.email}?subject=${subject}`}>Enquire about this work</a>}
-      </p>
+      <div class="buy-row">
+        {d.status === 'available' && buy && pickup
+          ? <details class="buy">
+              <summary class="btn primary">Buy original</summary>
+              <span class="buy-options">
+                <a class="buy-option" href={buy}><strong>Ship it to me</strong><span>Insured, professionally packed US shipping: {d.price && d.price <= 500 ? '$100' : '$150'}, plus California sales tax where it applies</span></a>
+                <a class="buy-option" href={pickup}><strong>I'll pick it up at the studio</strong><span>Sausalito, no shipping. Price includes 9.25% California sales tax</span></a>
+              </span>
+            </details>
+          : d.status === 'available' && buy ? <a class="btn primary" href={buy}>Buy original</a>
+          : <a class="btn primary" href={`mailto:${site.email}?subject=${subject}`}>Enquire about this work</a>}
+      </div>
       {d.status === 'available' && (buy
-        ? <p class="ship-note">Insured, professionally packed shipping within the US: {d.price && d.price <= 500 ? '$100' : '$150'}, added at checkout with California sales tax where it applies. {pickup ? <>Picking it up at the studio in Sausalito? Use <strong>Buy with studio pickup</strong>: no shipping, price includes 9.25% California sales tax. For shipping outside the US, please <a href={`mailto:${site.email}?subject=${subject}`}>enquire</a>.</> : <>For studio pickup in Sausalito or shipping outside the US, please <a href={`mailto:${site.email}?subject=${subject}`}>enquire</a>.</>}</p>
+        ? <p class="ship-note">{pickup ? <>Choose shipping or studio pickup after you click Buy. For shipping outside the US, please <a href={`mailto:${site.email}?subject=${subject}`}>enquire</a>.</> : <>Insured, professionally packed shipping within the US: {d.price && d.price <= 500 ? '$100' : '$150'}, added at checkout with California sales tax where it applies. For studio pickup in Sausalito or shipping outside the US, please <a href={`mailto:${site.email}?subject=${subject}`}>enquire</a>.</>}</p>
         : <p class="ship-note">Free pickup at the studio in Sausalito. Shipping is quoted individually when you enquire: insured, professionally packed, worldwide.</p>)}
       {d.instagram && <p><a href={d.instagram} rel="noopener">See on Instagram</a></p>}
       <nav aria-label="More works" class="meta">
