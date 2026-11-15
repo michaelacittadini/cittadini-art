@@ -11,6 +11,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## [Unreleased]
+- Tide Remembers marked sold (The Big Open, Nov 15).
 
 ## [v0.6.0] - 2026-11-15
 ### Changed

@@ -6,7 +6,7 @@ dimensions: "38 × 45 in"
 widthIn: 38
 heightIn: 45
 series: "Interference"
-status: available
+status: sold
 price: 3500
 images: ["./tide-remembers-1.jpg"]
 ---
