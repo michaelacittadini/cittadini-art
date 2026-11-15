@@ -12,6 +12,9 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+### Changed
+- Artwork pages: one "Buy original" button. Clicking it offers "Ship it to me" or "I'll pick it up at the studio", replacing the two separate buy buttons.
+
 ## [v0.5.1] - 2026-11-14
 - Fragment of a Bloom and Fragment of a Garden marked sold (The Big Open, Nov 14).
 

@@ -184,3 +184,15 @@ a:hover { color: var(--muted); text-decoration-color: var(--fg); }
 .about-portrait img { display: block; width: 100%; height: auto; }
 .about-layout .prose { min-width: 0; }
 @media (max-width: 850px) { .about-layout { grid-template-columns: 1fr; } .about-portrait { max-width: 520px; } }
+
+/* Single Buy button: choose shipping or studio pickup (v0.6.0) */
+.buy-row { margin: 1.25rem 0 .75rem; }
+details.buy > summary { list-style: none; cursor: pointer; display: inline-block; }
+details.buy > summary::-webkit-details-marker { display: none; }
+.buy-options { display: grid; gap: .6rem; margin-top: .75rem; max-width: 34rem; }
+.buy-option { display: block; padding: .8rem 1rem; border: 1px solid var(--fg); border-radius: 3px; color: inherit; text-decoration: none; background: transparent; }
+.buy-option strong { display: block; font-weight: 600; margin-bottom: .2rem; }
+.buy-option span { display: block; font-size: .9em; opacity: .75; }
+.buy-option:hover, .buy-option:focus-visible { border-color: var(--flame); background: var(--flame); color: #fff; }
+.buy-option:hover span, .buy-option:focus-visible span { opacity: 1; }
+
