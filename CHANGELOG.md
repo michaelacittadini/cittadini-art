@@ -12,6 +12,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+## [v0.6.0] - 2026-11-15
 ### Changed
 - Artwork pages: one "Buy original" button. Clicking it offers "Ship it to me" or "I'll pick it up at the studio", replacing the two separate buy buttons.
 
