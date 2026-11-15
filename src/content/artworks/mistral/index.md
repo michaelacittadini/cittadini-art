@@ -6,7 +6,7 @@ dimensions: "12 × 12 in"
 widthIn: 12
 heightIn: 12
 series: "Trade Winds"
-status: available
+status: sold
 price: 495
 images: ["./mistral-1.jpg", "./framed.jpg"]
 imageCaptions: ["Artwork", "Framed artwork"]
