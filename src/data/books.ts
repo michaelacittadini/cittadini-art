@@ -27,7 +27,7 @@ export const books: Book[] = [
     title: 'Wild Waves',
     subtitle: 'Bold & Easy Ocean Animals',
     ages: '3–6', pages: 24,
-    description: 'Friendly sea animals with strong outlines and big spaces to color, printed single-sided for little hands.',
+    description: 'Twenty friendly sea animals, from whales and turtles to crabs and starfish, with strong outlines and big spaces to color.',
     cover: boldEasy,
     amazon: 'https://www.amazon.com/dp/B0HGWGP6S7',
   },
