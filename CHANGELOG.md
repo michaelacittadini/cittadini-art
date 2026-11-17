@@ -12,6 +12,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+- New Books page with the three *Wild Waves* coloring books and links to Amazon (simple edition shown with its new coral cover, bold & easy edition with its corrected cover); "Books" added to the menu.
+
 ## [v0.6.3] - 2026-11-15
 - Sirocco marked sold (studio pickup sale, The Big Open, Nov 15); its buy links switched off.
 

@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { books } from '../data/books';
+---
+<Base title="Books" description="Wild Waves: children's coloring books inspired by Misha Cittadini's abstract paintings, available on Amazon." image={books[0].cover}>
+  <h1>Books</h1>
+  <div class="prose">
+    <p><em>Wild Waves</em> is a series of coloring books for children, drawn from my abstract paintings. Kids look into the waves and currents and find the sea animals hiding there, then color their own version.</p>
+  </div>
+  <div class="grid books">
+    {books.map((b, i) => (
+      <article class="card">
+        <a href={b.amazon} rel="noopener" target="_blank">
+          <Image src={b.cover} alt={`Cover of ${b.title}: ${b.subtitle}, by Misha Cittadini`} widths={[360, 540, 720]} sizes="(max-width: 600px) 100vw, 360px" loading={i < 3 ? 'eager' : 'lazy'} />
+          <h3>{b.title}</h3>
+        </a>
+        <p class="meta">{b.subtitle} · Ages {b.ages} · {b.pages} pages · Paperback</p>
+        <p>{b.description}</p>
+        <p><a class="btn" href={b.amazon} rel="noopener" target="_blank">Buy on Amazon</a></p>
+      </article>
+    ))}
+  </div>
+</Base>
+<style>
+  .books .card img { aspect-ratio: 1000 / 1293; object-fit: contain; background: transparent; }
+</style>
