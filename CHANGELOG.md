@@ -12,6 +12,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+## [v0.7.0] - 2026-11-17
 - New Books page with the three *Wild Waves* coloring books and links to Amazon (simple edition shown with its new coral cover, bold & easy edition with its corrected cover); "Books" added to the menu.
 
 ## [v0.6.3] - 2026-11-15
