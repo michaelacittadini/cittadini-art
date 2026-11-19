@@ -12,6 +12,7 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+## [v0.7.1] - 2026-11-19
 ### Changed
 - Search: richer schema.org Person + WebSite data on the home page (her other profiles as sameAs, alternate names, studio location, education) so search engines treat cittadini.art as Misha's official site.
 - Search: IndexNow key file so new and changed pages can be pushed straight to Bing (and the engines that use its index).
