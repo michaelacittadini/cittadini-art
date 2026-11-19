@@ -13,7 +13,7 @@ const highlights = featured.filter((w) => w.id !== hero?.id).slice(0, 8);
 const rank = (n) => { const i = seriesOrder.order.indexOf(n); return i < 0 ? 999 : i; };
 const series = (await seriesList()).filter((s) => !(seriesOrder.hidden ?? []).includes(s.name)).sort((a, b) => rank(a.name) - rank(b.name));
 ---
-<Base image={hero?.data.images[0]} jsonLd={{ '@context': 'https://schema.org', '@type': 'Person', name: site.name, alternateName: site.legalName, jobTitle: 'Artist', url: Astro.site?.href, sameAs: [site.instagram] }}>
+<Base image={hero?.data.images[0]} jsonLd={{ '@context': 'https://schema.org', '@graph': [ { '@type': 'Person', '@id': `${Astro.site?.href}#misha`, name: site.name, alternateName: site.legalName, jobTitle: 'Abstract painter', description: site.description, url: Astro.site?.href, image: hero ? new URL(hero.data.images[0].src, Astro.site).href : undefined, nationality: 'Czech', birthPlace: 'Sokolov, Czechia', workLocation: { '@type': 'Place', name: 'ICB Building, Sausalito, California' }, alumniOf: ['Academy of Art University', 'Duquesne University'], knowsAbout: ['Abstract painting', 'Contemporary art', 'Collage'], email: `mailto:${site.email}`, sameAs: site.profiles }, { '@type': 'WebSite', '@id': `${Astro.site?.href}#site`, name: site.name, alternateName: 'Misha Cittadini Art', url: Astro.site?.href, publisher: { '@id': `${Astro.site?.href}#misha` } } ] }}>
   {hero && (
     <section class="hero">
       <figure class="hero-fig">

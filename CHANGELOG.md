@@ -12,6 +12,10 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+### Changed
+- Search: richer schema.org Person + WebSite data on the home page (her other profiles as sameAs, alternate names, studio location, education) so search engines treat cittadini.art as Misha's official site.
+- Search: IndexNow key file so new and changed pages can be pushed straight to Bing (and the engines that use its index).
+
 ## [v0.7.0] - 2026-11-17
 - New Books page with the three *Wild Waves* coloring books and links to Amazon (simple edition shown with its new coral cover, bold & easy edition with its corrected cover); "Books" added to the menu.
 
