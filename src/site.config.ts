@@ -8,6 +8,17 @@ export const site = {
   description: 'Misha Cittadini is a Czech-born abstract painter based in the San Francisco Bay Area. Browse original paintings by series, exhibitions, and enquire about originals and commissions.',
   email: 'misha@cittadini.art',
   instagram: 'https://www.instagram.com/mishacittadiniart/',
+  // Her profiles elsewhere; used as schema.org sameAs so search engines tie them to this site.
+  profiles: [
+    'https://www.instagram.com/mishacittadiniart/',
+    'https://www.facebook.com/p/Misha-Cittadini-Art-61578473954800/',
+    'https://www.icbart.com/misha-cittadini',
+    'https://www.saatchiart.com/mishacittadiniart',
+    'https://www.artsy.net/artist/michaela-cittadini',
+    'https://www.mutualart.com/Artist/Misha-Cittadini/B4E1E71959A64D7D',
+    'https://hmvcgallery.com/artists/Michaela-Cittadini',
+    'https://marinopenstudios.org/members/mishacittadini/',
+  ],
   studio: 'ICB Building, Studio 107, 480 Gate 5 Rd, Sausalito, CA 94965',
   location: 'Sausalito, California',
   // Commerce plug-ins (placeholders until Misha's own accounts exist; see docs/COMMERCE.md).
