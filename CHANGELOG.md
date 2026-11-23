@@ -12,6 +12,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+- Added *Standing Wave* (Resonance, 48 × 36 in, $3,500).
+
 ## [v0.7.2] - 2026-11-20
 ### Changed
 - Blue Emergence marked as sold.
