@@ -11,6 +11,8 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 - **MAJOR** (v0.x → v1.0.0): Misha approves the site as her official launch; later, a redesign or a change that breaks links.
 
 ## [Unreleased]
+### Added
+- *Standing Wave* (Resonance, 48 × 36 in, $3,500).
 
 ## [v0.7.2] - 2026-11-20
 ### Changed
