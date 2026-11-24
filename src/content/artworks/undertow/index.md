@@ -8,6 +8,9 @@ heightIn: 60
 series: "Resonance"
 status: available
 price: 7500
+gallery: "Čermák Eisenkraft"
+galleryCity: "Prague"
+galleryUrl: "https://www.cermakeisenkraft.com"
 images: ["./undertow-1.jpg", "./album-interior-1.jpg", "./album-interior-2.jpg", "./album-interior-3.jpg"]
 imageCaptions: ["Artwork", "Interior mockup", "Interior mockup", "Interior mockup"]
 order: 44

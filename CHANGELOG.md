@@ -12,6 +12,12 @@ script refuses to put anything live unless it is a tagged, pushed version. See d
 
 ## [Unreleased]
 
+### Added
+- Paintings with a gallery can say "Available through <gallery>" instead of a price and Buy button; the Stripe sync switches off their buy links.
+
+### Changed
+- Aperture of Becoming, Undertow, The Weight of Silence, Overtone, Deep Reverberation and Soft Undertow: available through Čermák Eisenkraft, Prague (publish when they leave for Prague, Dec 9).
+
 ## [v0.7.3] - 2026-11-23
 ### Added
 - *Standing Wave* (Resonance, 48 × 36 in, $3,500).

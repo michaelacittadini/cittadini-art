@@ -8,6 +8,9 @@ heightIn: 59
 series: "Resonance"
 status: available
 price: 7500
+gallery: "Čermák Eisenkraft"
+galleryCity: "Prague"
+galleryUrl: "https://www.cermakeisenkraft.com"
 images: ["./aperture-of-becoming-1.jpg", "./interior-1.jpg", "./interior-2.jpg", "./interior-3.jpg"]
 ---
 
