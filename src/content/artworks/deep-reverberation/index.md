@@ -8,6 +8,9 @@ heightIn: 45
 series: "Resonance"
 status: available
 price: 3500
+gallery: "Čermák Eisenkraft"
+galleryCity: "Prague"
+galleryUrl: "https://www.cermakeisenkraft.com"
 images: ["./deep-reverberation-1.jpg"]
 ---
 

@@ -2,7 +2,7 @@
 // Sync artworks -> Stripe Products/Prices/Payment Links, write public link map to src/data/stripe-links.json.
 //   STRIPE_API_KEY=rk_test_... node scripts/stripe/sync-artworks.mjs [--dry-run] [--tax]
 // - Only works with status: available AND a price get a Payment Link (limit 1 completed sale: originals are unique).
-// - sold / nfs / no price -> existing link is deactivated and removed from the map.
+// - sold / nfs / no price / consigned to a gallery (gallery: set) -> existing link is deactivated and removed from the map.
 // - Price change -> new Price, old one archived, link recreated.
 // - --tax turns on Stripe Tax (automatic_tax) on links; only use once Misha's tax registrations exist in Stripe.
 // Products are matched by metadata.slug, so re-running is safe (idempotent).
@@ -55,7 +55,7 @@ async function shippingPrice(amount) {
   return (shipPriceCache[amount] = prod.default_price);
 }
 for (const w of works) {
-  const sellable = w.status === 'available' && typeof w.price === 'number' && w.price > 0 && w.price <= MAX_ONLINE_PRICE;
+  const sellable = w.status === 'available' && !w.gallery && typeof w.price === 'number' && w.price > 0 && w.price <= MAX_ONLINE_PRICE;
   const cents = sellable ? Math.round(w.price * 100) : 0;
   if (DRY) { if (sellable) console.log(`would sell ${w.slug} $${w.price}`); continue; }
   let product = await findProduct(w.slug);

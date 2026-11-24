@@ -11,8 +11,10 @@ export async function getStaticPaths() {
 const { work, prev, next } = Astro.props;
 const d = work.data;
 const { Content } = await render(work);
-const buy = site.commerce.stripePaymentLinks[work.id];
-const pickup = site.commerce.stripePickupLinks[work.id];
+const atGallery = d.status === 'available' && d.gallery;
+const buy = atGallery ? undefined : site.commerce.stripePaymentLinks[work.id];
+const pickup = atGallery ? undefined : site.commerce.stripePickupLinks[work.id];
+const galleryPlace = [d.gallery, d.galleryCity].filter(Boolean).join(', ');
 const subject = encodeURIComponent(`Enquiry: ${d.title}`);
 const alt = d.alt ?? `${d.title}${d.medium ? ', ' + d.medium : ''} by Misha Cittadini`;
 const desc = [d.title, d.year, d.medium, d.dimensions].filter(Boolean).join(', ') + ' — original artwork by Misha Cittadini.';
@@ -30,7 +32,9 @@ const ld = { '@context': 'https://schema.org', '@type': 'VisualArtwork', name: d
         {d.medium && <><dt>Medium</dt><dd>{d.medium}</dd></>}
         {d.dimensions && <><dt>Dimensions</dt><dd>{d.dimensions}</dd></>}
         {d.series && <><dt>Series</dt><dd><a href={`/works/series/${slugify(d.series)}/`}>{d.series}</a></dd></>}
-        {statusLabel[d.status] && <><dt>Availability</dt><dd>{statusLabel[d.status]}{d.status === 'available' && d.price ? ` — ${formatPrice(d.price)}` : ''}</dd></>}
+        {atGallery
+          ? <><dt>Availability</dt><dd>Available through {d.galleryUrl ? <a href={d.galleryUrl} rel="noopener">{galleryPlace}</a> : galleryPlace}</dd></>
+          : statusLabel[d.status] && <><dt>Availability</dt><dd>{statusLabel[d.status]}{d.status === 'available' && d.price ? ` — ${formatPrice(d.price)}` : ''}</dd></>}
       </dl>
       <div class="prose"><Content /></div>
       <div class="buy-row">
@@ -45,7 +49,8 @@ const ld = { '@context': 'https://schema.org', '@type': 'VisualArtwork', name: d
           : d.status === 'available' && buy ? <a class="btn primary" href={buy}>Buy original</a>
           : <a class="btn primary" href={`mailto:${site.email}?subject=${subject}`}>Enquire about this work</a>}
       </div>
-      {d.status === 'available' && (buy
+      {atGallery && <p class="ship-note">On view at {galleryPlace}. For the price and a viewing, please contact the gallery or <a href={`mailto:${site.email}?subject=${subject}`}>enquire here</a>.</p>}
+      {d.status === 'available' && !atGallery && (buy
         ? <p class="ship-note">{pickup ? <>Choose shipping or studio pickup after you click Buy. For shipping outside the US, please <a href={`mailto:${site.email}?subject=${subject}`}>enquire</a>.</> : <>Insured, professionally packed shipping within the US: {d.price && d.price <= 500 ? '$100' : '$150'}, added at checkout with California sales tax where it applies. For studio pickup in Sausalito or shipping outside the US, please <a href={`mailto:${site.email}?subject=${subject}`}>enquire</a>.</>}</p>
         : <p class="ship-note">Free pickup at the studio in Sausalito. Shipping is quoted individually when you enquire: insured, professionally packed, worldwide.</p>)}
       {d.instagram && <p><a href={d.instagram} rel="noopener">See on Instagram</a></p>}

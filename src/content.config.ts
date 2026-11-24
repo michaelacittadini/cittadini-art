@@ -16,6 +16,10 @@ const artworks = defineCollection({
       series: z.string().optional(),
       status: z.enum(['available', 'sold', 'nfs', 'commission', 'unknown']).default('unknown'),
       price: z.number().nullable().optional(),
+      // Work is consigned to a gallery: price and Buy buttons are hidden, enquiries go to the gallery.
+      gallery: z.string().optional(),
+      galleryCity: z.string().optional(),
+      galleryUrl: z.string().url().optional(),
       images: z.array(image()).min(1),
       imageCaptions: z.array(z.string()).optional(),
       alt: z.string().optional(),
